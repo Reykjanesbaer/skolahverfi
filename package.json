@@ -1,0 +1,21 @@
+{
+  "name": "skolahverfi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Skólahverfaleit Reykjanesbæjar: sjálfstæð vefgræja fyrir GitHub Pages",
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22.18" },
+  "scripts": {
+    "test": "node --test \"tests/unit/*.test.js\"",
+    "test:e2e": "node --test --test-concurrency=1 \"tests/e2e/*.test.js\"",
+    "test:all": "npm test && npm run test:e2e",
+    "validate": "node scripts/validate-data.js",
+    "review": "node scripts/review-report.js",
+    "review:check": "node scripts/review-report.js --check",
+    "import": "node scripts/import-hms.js",
+    "serve": "node tests/helpers/serve.js"
+  },
+  "devDependencies": {
+    "playwright-core": "1.56.1"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "municipality": {
+    "code": 2000,
+    "name": "Reykjanesbær"
+  },
+  "note": "Vefslóðir skólanna og svæðaheiti póstnúmera (areas) eru óstaðfest þar til Reykjanesbær hefur farið yfir þau; CI athugar að slóðirnar svari (scripts/check-school-links.js). Aðeins https-slóðir á .is-léni eru leyfðar.",
+  "areas": {
+    "230": "Keflavík",
+    "232": "Keflavík",
+    "233": "Hafnir",
+    "235": "Keflavíkurflugvöllur",
+    "260": "Njarðvík",
+    "262": "Ásbrú"
+  },
+  "contact": {
+    "label": "Hafa samband við Reykjanesbæ",
+    "url": "https://www.reykjanesbaer.is/"
+  },
+  "schools": [
+    {
+      "id": "akurskoli",
+      "name": "Akurskóli",
+      "genitive": "Akurskóla",
+      "url": "https://www.akurskoli.is/"
+    },
+    {
+      "id": "haaleitisskoli",
+      "name": "Háaleitisskóli",
+      "genitive": "Háaleitisskóla",
+      "url": "https://www.haaleitisskoli.is/"
+    },
+    {
+      "id": "heidarskoli",
+      "name": "Heiðarskóli",
+      "genitive": "Heiðarskóla",
+      "url": "https://www.heidarskoli.is/"
+    },
+    {
+      "id": "holtaskoli",
+      "name": "Holtaskóli",
+      "genitive": "Holtaskóla",
+      "url": "https://www.holtaskoli.is/"
+    },
+    {
+      "id": "myllubakkaskoli",
+      "name": "Myllubakkaskóli",
+      "genitive": "Myllubakkaskóla",
+      "url": "https://www.myllubakkaskoli.is/"
+    },
+    {
+      "id": "njardvikurskoli",
+      "name": "Njarðvíkurskóli",
+      "genitive": "Njarðvíkurskóla",
+      "url": "https://www.njardvikurskoli.is/"
+    },
+    {
+      "id": "stapaskoli",
+      "name": "Stapaskóli",
+      "genitive": "Stapaskóla",
+      "url": "https://www.stapaskoli.is/"
+    }
+  ]
+}

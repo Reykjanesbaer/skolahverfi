@@ -1,0 +1,343 @@
+/*
+ * Skólahverfaleit — útlit.
+ *
+ * Litir, hornarúnnun og leturstærð eru CSS-breytur sem widget.js setur út frá
+ * stillingum (config.js). Letrið er ein breyta, --sk-font; leturskrárnar eru
+ * skilgreindar í fonts/fonts.css.
+ */
+
+:root {
+  --sk-font: "Circular Std", "Figtree", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Sjálfgefið ljóst þema; widget.js yfirskrifar */
+  --sk-bg: #FFFFFF;
+  --sk-bg-solid: #FFFFFF;
+  --sk-text: #1F2629;
+  --sk-border: #C9D2D6;
+  --sk-accent: #2760AB;
+  --sk-on-accent: #FFFFFF;
+  --sk-muted: color-mix(in srgb, var(--sk-text) 78%, var(--sk-bg-solid));
+  --sk-soft: color-mix(in srgb, var(--sk-accent) 8%, var(--sk-bg-solid));
+  --sk-warn-bg: color-mix(in srgb, var(--sk-text) 5%, var(--sk-bg-solid));
+  --sk-radius: 12px;
+  --sk-fs: 16px;
+  --sk-focus: var(--sk-text);
+  --sk-gap: 1rem;
+  color-scheme: light dark;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font-size: var(--sk-fs);
+  background: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--sk-text);
+  font-family: var(--sk-font);
+  font-size: 1rem;
+  line-height: 1.5;
+  /* Varaleið: ef foreldrasíða stækkar ekki iframe-inn skrunar efnið hér inni
+     í stað þess að klippast af. */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap; border: 0;
+}
+
+[hidden] { display: none !important; }
+
+.sk {
+  display: block;
+  padding: 1.25rem;
+  background: var(--sk-bg);
+  color: var(--sk-text);
+  border: 1px solid var(--sk-border);
+  border-radius: var(--sk-radius);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Fyrirsögn ---------- */
+.sk-head { margin: 0 0 var(--sk-gap); }
+.sk-title {
+  margin: 0 0 .35rem;
+  font-size: clamp(1.45rem, 5.2vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+}
+.sk-intro { margin: 0; color: var(--sk-muted); }
+
+/* ---------- Leit ---------- */
+.sk-form { margin: 0; }
+.sk-label {
+  display: block;
+  margin: 0 0 .35rem;
+  font-weight: 700;
+  font-size: .95rem;
+}
+.sk-field { position: relative; }
+.sk-field-icon {
+  position: absolute;
+  left: .95rem; top: 50%;
+  width: 1.3rem; height: 1.3rem;
+  transform: translateY(-50%);
+  color: var(--sk-muted);
+  pointer-events: none;
+}
+.sk-input {
+  display: block;
+  width: 100%;
+  min-height: 3.25rem;
+  margin: 0;
+  padding: .7rem 3rem .7rem 3rem;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--sk-text);
+  background: var(--sk-bg-solid);
+  border: 2px solid var(--sk-border);
+  border-radius: calc(var(--sk-radius) + 2px);
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.sk-input::placeholder { color: var(--sk-muted); opacity: 1; }
+.sk-input:hover { border-color: color-mix(in srgb, var(--sk-text) 45%, var(--sk-border)); }
+.sk-input:focus-visible,
+.sk-input:focus {
+  outline: 3px solid var(--sk-focus);
+  outline-offset: 2px;
+  border-color: var(--sk-accent);
+}
+.sk-input:disabled { opacity: .7; cursor: progress; }
+.sk-input[aria-invalid="true"] { border-color: var(--sk-text); }
+
+.sk-clear {
+  position: absolute;
+  right: .35rem; top: 50%;
+  width: 2.75rem; height: 2.75rem;
+  display: grid; place-items: center;
+  transform: translateY(-50%);
+  padding: 0;
+  color: var(--sk-text);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.sk-clear svg { width: 1.2rem; height: 1.2rem; }
+.sk-clear:hover { background: var(--sk-soft); }
+.sk-clear:focus-visible { outline: 3px solid var(--sk-focus); outline-offset: 0; }
+
+/* Listinn er í flæði (ekki yfirlagður) svo hann klippist aldrei í iframe */
+.sk-list {
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: .25rem;
+  background: var(--sk-bg-solid);
+  border: 1px solid var(--sk-border);
+  border-radius: var(--sk-radius);
+}
+.sk-option {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .1rem .75rem;
+  min-height: 2.75rem;
+  padding: .55rem .75rem;
+  border-radius: calc(var(--sk-radius) - 4px);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sk-option-main { font-weight: 700; }
+.sk-option-area { color: var(--sk-muted); font-size: .9rem; }
+.sk-option:hover { background: var(--sk-soft); }
+.sk-option[aria-selected="true"] {
+  background: var(--sk-accent);
+  color: var(--sk-on-accent);
+  outline: 2px solid var(--sk-focus);
+  outline-offset: -2px;
+}
+.sk-option[aria-selected="true"] .sk-option-area { color: inherit; opacity: .9; }
+.sk-option mark { background: transparent; color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+.sk-hint { margin: .55rem 0 0; font-size: .9rem; color: var(--sk-muted); }
+.sk-error {
+  margin: .55rem 0 0;
+  padding: .6rem .8rem;
+  font-size: .95rem;
+  font-weight: 600;
+  background: var(--sk-warn-bg);
+  border: 1px solid var(--sk-text);
+  border-left-width: 5px;
+  border-radius: calc(var(--sk-radius) - 4px);
+}
+
+/* ---------- Hnappar ---------- */
+.sk-btn, .sk-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  min-height: 2.75rem;
+  padding: .55rem 1.1rem;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border-radius: calc(var(--sk-radius) - 2px);
+  border: 2px solid var(--sk-accent);
+  cursor: pointer;
+}
+.sk-btn-primary, .sk-link-btn.sk-btn-primary { background: var(--sk-accent); color: var(--sk-on-accent); }
+.sk-btn-primary:hover { background: color-mix(in srgb, var(--sk-accent) 88%, var(--sk-text)); }
+.sk-btn-secondary { background: transparent; color: var(--sk-accent); }
+.sk-btn-secondary:hover { background: var(--sk-soft); }
+.sk-btn:focus-visible, .sk-link-btn:focus-visible, .sk-text-link:focus-visible,
+.sk-all-summary:focus-visible, .sk-school > summary:focus-visible {
+  outline: 3px solid var(--sk-focus);
+  outline-offset: 2px;
+}
+.sk-retry { margin-top: .6rem; }
+.sk-ext { width: 1em; height: 1em; flex: none; }
+
+/* ---------- Niðurstaða ---------- */
+.sk-result-wrap { margin-top: var(--sk-gap); }
+.sk-result-wrap:empty { display: none; }
+.sk-card {
+  padding: 1.15rem 1.2rem 1.25rem;
+  background: var(--sk-soft);
+  border: 1px solid var(--sk-border);
+  border-left: 6px solid var(--sk-accent);
+  border-radius: var(--sk-radius);
+  animation: sk-in .22s ease-out both;
+}
+.sk-card-unconfirmed { background: var(--sk-warn-bg); border-left-style: double; border-left-width: 8px; border-left-color: var(--sk-text); }
+.sk-eyebrow {
+  margin: 0 0 .15rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--sk-muted);
+}
+.sk-school-name {
+  margin: 0 0 .4rem;
+  font-size: clamp(1.6rem, 6.5vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+.sk-card-unconfirmed .sk-school-name { font-size: clamp(1.25rem, 5vw, 1.55rem); }
+.sk-sentence { margin: 0 0 .9rem; font-size: 1.05rem; }
+.sk-facts { margin: 0 0 1rem; padding: 0; display: grid; gap: .25rem; font-size: .95rem; }
+.sk-facts div { display: grid; grid-template-columns: minmax(6.5rem, max-content) 1fr; gap: .25rem .75rem; }
+.sk-facts dt { color: var(--sk-muted); font-weight: 600; }
+.sk-facts dd { margin: 0; }
+.sk-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+@keyframes sk-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Öll skólahverfi ---------- */
+.sk-all { margin-top: 1.25rem; border-top: 1px solid var(--sk-border); padding-top: 1rem; }
+.sk-all-summary {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  min-height: 2.75rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: 8px;
+}
+.sk-all-summary::-webkit-details-marker { display: none; }
+.sk-all-summary::before, .sk-school > summary::before {
+  content: "";
+  flex: none;
+  width: .6rem; height: .6rem;
+  border-right: 2.5px solid currentColor;
+  border-bottom: 2.5px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform .15s ease;
+  margin: 0 .25rem 0 .15rem;
+}
+.sk-all[open] > .sk-all-summary::before,
+.sk-school[open] > summary::before { transform: rotate(45deg); }
+
+.sk-all-body { margin-top: .75rem; display: grid; gap: .6rem; }
+.sk-all-note { margin: 0 0 .25rem; font-size: .9rem; color: var(--sk-muted); }
+.sk-school {
+  border: 1px solid var(--sk-border);
+  border-radius: var(--sk-radius);
+  background: var(--sk-bg-solid);
+}
+.sk-school > summary {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 3rem;
+  padding: .45rem .8rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--sk-radius);
+}
+.sk-school > summary::-webkit-details-marker { display: none; }
+.sk-school > summary:hover { background: var(--sk-soft); }
+.sk-school-title { margin: 0; font-size: 1.05rem; font-weight: 700; flex: 1; }
+.sk-school-count { color: var(--sk-muted); font-size: .85rem; font-weight: 500; }
+.sk-school-body { padding: .25rem .9rem .9rem; }
+.sk-subhead { margin: .8rem 0 .35rem; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--sk-muted); }
+.sk-streets { margin: 0; padding: 0; list-style: none; columns: 14rem auto; column-gap: 1.5rem; font-size: .95rem; }
+.sk-streets li { break-inside: avoid; padding: .12rem 0; }
+.sk-pending {
+  margin-top: .9rem;
+  padding: .6rem .8rem .7rem;
+  border: 2px dashed var(--sk-text);
+  border-radius: calc(var(--sk-radius) - 4px);
+  background: var(--sk-warn-bg);
+}
+.sk-pending .sk-subhead { margin-top: 0; color: var(--sk-text); }
+.sk-pending-reason { color: var(--sk-muted); font-size: .85rem; }
+.sk-text-link { color: var(--sk-accent); font-weight: 700; text-underline-offset: 3px; }
+.sk-school-link { margin: .8rem 0 0; font-size: .95rem; }
+
+.sk-foot { margin-top: 1rem; font-size: .8rem; color: var(--sk-muted); }
+.sk-foot:empty { display: none; }
+
+/* ---------- Mjóir skjáir (320 px) ---------- */
+@media (max-width: 26rem) {
+  .sk { padding: 1rem .9rem; }
+  .sk-actions > * { flex: 1 1 100%; }
+  .sk-facts div { grid-template-columns: 1fr; gap: 0; }
+  .sk-streets { columns: 1; }
+}
+
+/* ---------- Aðgengisstillingar ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media (forced-colors: active) {
+  .sk-option[aria-selected="true"] { outline: 3px solid Highlight; }
+  .sk-card { border-left-width: 6px; }
+}
