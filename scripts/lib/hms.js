@@ -43,7 +43,7 @@ function fail(message) {
 
 /* Finnur dálkavísa; kastar villu ef nauðsynlegur dálkur vantar */
 function resolveColumns(header) {
-  var upper = header.map(function (h) { return String(h).replace(/^﻿/, '').trim().toUpperCase(); });
+  var upper = header.map(function (h) { return String(h).replace(new RegExp('^\\uFEFF'), '').trim().toUpperCase(); });
   var idx = {}, missing = [];
   Object.keys(REQUIRED).forEach(function (k) {
     var found = -1;

@@ -1,0 +1,112 @@
+# Uppfærsla Staðfangaskrár HMS.
+#
+#  - Keyrir vikulega (mánudagsmorgna) og handvirkt (workflow_dispatch).
+#  - Sækir nýjustu CSV-skrána, staðfestir dálka og sveitarfélagsnúmer, hreinsar,
+#    ber saman við fyrri útgáfu og keyrir einingapróf og sannprófun á heimilisföngum
+#    OG skólahverfareglum.
+#  - Ef gögnin breytast er opnað pull request með skýrslu um ný, breytt, óþekkt
+#    og tvítekin staðföng. Ekkert er birt fyrr en PR er yfirfarið og sameinað.
+#  - Ef niðurhal, innflutningur eða prófanir mistakast fer ekkert í repóið og
+#    síðasta staðfesta útgáfa helst óbreytt.
+#
+# Réttindi: contents + pull-requests (write) aðeins í þessu eina verki.
+# Engin leyndarmál þarf; GITHUB_TOKEN dugar. Til að PR megi opnast þarf
+# Settings → Actions → General → „Allow GitHub Actions to create and approve
+# pull requests“. Annars er greinin samt uppfærð og hlekkur á samanburð birtur.
+name: Uppfæra HMS-gögn
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Aðeins prófa (ekkert committað)'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '17 6 * * 1'   # mánudaga kl. 06:17 UTC
+
+permissions: {}
+
+concurrency:
+  group: hms-update
+  cancel-in-progress: false
+
+env:
+  HMS_CSV_URL: https://hmsstgsftpprodweu001.blob.core.windows.net/fasteignaskra/Stadfangaskra.csv
+  DATA_BRANCH: data/hms-update
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sækja Staðfangaskrá
+        id: download
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors --max-time 600 \
+            -D "$RUNNER_TEMP/headers.txt" -o "$RUNNER_TEMP/Stadfangaskra.csv" "$HMS_CSV_URL"
+          size=$(stat -c %s "$RUNNER_TEMP/Stadfangaskra.csv")
+          echo "Stærð: $size bæti"
+          if [ "$size" -lt 5000000 ]; then
+            echo "::error::Skráin er óeðlilega lítil ($size bæti); hætt við."
+            exit 1
+          fi
+          lm=$(grep -i '^last-modified:' "$RUNNER_TEMP/headers.txt" | tail -1 | sed 's/^[^:]*: *//' | tr -d '\r' || true)
+          echo "last_modified=$lm" >> "$GITHUB_OUTPUT"
+
+      - name: Flytja inn og bera saman
+        id: import
+        run: |
+          set -euo pipefail
+          node scripts/import-hms.js \
+            --input "$RUNNER_TEMP/Stadfangaskra.csv" \
+            --retrieved "$(date -u +%F)" \
+            --source-modified "${{ steps.download.outputs.last_modified }}" \
+            --summary "$RUNNER_TEMP/summary.md" | tee "$RUNNER_TEMP/import.log"
+          changed=$(grep -o '^changed=.*' "$RUNNER_TEMP/import.log" | tail -1 | cut -d= -f2)
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Prófa heimilisföng og skólahverfareglur
+        if: steps.import.outputs.changed == 'true'
+        run: |
+          node scripts/validate-data.js
+          npm test
+
+      - name: Ekkert breyttist
+        if: steps.import.outputs.changed != 'true'
+        run: echo "Staðfangaskrá hefur ekki breyst frá síðustu útgáfu. Ekkert PR opnað." | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Opna pull request
+        if: steps.import.outputs.changed == 'true' && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$DATA_BRANCH"
+          git add widget/data data/review
+          git commit -m "Uppfæra Staðfangaskrá HMS ($(date -u +%F))"
+          git push --force origin "$DATA_BRANCH"
+          if [ -n "$(gh pr list --head "$DATA_BRANCH" --state open --json number --jq '.[0].number')" ]; then
+            echo "PR er þegar opið; það hefur verið uppfært með nýjustu gögnum." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            gh pr create --base "$BASE" --head "$DATA_BRANCH" \
+              --title "Uppfæra Staðfangaskrá HMS ($(date -u +%F))" \
+              --body-file "$RUNNER_TEMP/summary.md" \
+            || echo "::warning::Ekki tókst að opna PR sjálfvirkt. Opnaðu það handvirkt: ${{ github.server_url }}/${{ github.repository }}/compare/$BASE...$DATA_BRANCH"
+          fi

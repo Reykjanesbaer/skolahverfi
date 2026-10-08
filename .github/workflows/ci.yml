@@ -1,0 +1,58 @@
+# Prófanir á hverju PR og hverri breytingu á main.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit:
+    name: Einingapróf og gögn (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
+      - name: Sannprófa gagnaskrár
+        run: npm run validate
+      - name: Yfirferðarskrá í takt við gögn
+        run: npm run review:check
+
+  e2e:
+    name: Vafrapróf (farsími, lyklaborð, iframe)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx playwright-core install --with-deps chromium
+      - run: npm run test:e2e
+
+  links:
+    name: Vefslóðir skóla svara (ekki lokandi)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-school-links.js --strict

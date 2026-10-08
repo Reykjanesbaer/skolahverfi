@@ -14,7 +14,8 @@
   --sk-bg: #FFFFFF;
   --sk-bg-solid: #FFFFFF;
   --sk-text: #1F2629;
-  --sk-border: #C9D2D6;
+  --sk-border: #73828A;          /* mörk stýringa, ≥ 3:1 */
+  --sk-line: color-mix(in srgb, var(--sk-border) 38%, var(--sk-bg-solid)); /* skil og spjöld */
   --sk-accent: #2760AB;
   --sk-on-accent: #FFFFFF;
   --sk-muted: color-mix(in srgb, var(--sk-text) 78%, var(--sk-bg-solid));
@@ -66,7 +67,7 @@ body {
   padding: 1.25rem;
   background: var(--sk-bg);
   color: var(--sk-text);
-  border: 1px solid var(--sk-border);
+  border: 1px solid var(--sk-line);
   border-radius: var(--sk-radius);
   overflow-wrap: anywhere;
 }
@@ -149,7 +150,7 @@ body {
   margin: .5rem 0 0;
   padding: .25rem;
   background: var(--sk-bg-solid);
-  border: 1px solid var(--sk-border);
+  border: 1px solid var(--sk-line);
   border-radius: var(--sk-radius);
 }
 .sk-option {
@@ -224,7 +225,7 @@ body {
 .sk-card {
   padding: 1.15rem 1.2rem 1.25rem;
   background: var(--sk-soft);
-  border: 1px solid var(--sk-border);
+  border: 1px solid var(--sk-line);
   border-left: 6px solid var(--sk-accent);
   border-radius: var(--sk-radius);
   animation: sk-in .22s ease-out both;
@@ -258,7 +259,7 @@ body {
 }
 
 /* ---------- Öll skólahverfi ---------- */
-.sk-all { margin-top: 1.25rem; border-top: 1px solid var(--sk-border); padding-top: 1rem; }
+.sk-all { margin-top: 1.25rem; border-top: 1px solid var(--sk-line); padding-top: 1rem; }
 .sk-all-summary {
   display: flex;
   align-items: center;
@@ -287,7 +288,7 @@ body {
 .sk-all-body { margin-top: .75rem; display: grid; gap: .6rem; }
 .sk-all-note { margin: 0 0 .25rem; font-size: .9rem; color: var(--sk-muted); }
 .sk-school {
-  border: 1px solid var(--sk-border);
+  border: 1px solid var(--sk-line);
   border-radius: var(--sk-radius);
   background: var(--sk-bg-solid);
 }

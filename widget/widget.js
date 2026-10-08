@@ -52,6 +52,7 @@
     streetsWord: ['gata', 'götur'],
     dataLine: 'Heimilisföng: Staðfangaskrá HMS',
     zonesLine: 'Skólahverfi: reglur Reykjanesbæjar',
+    rulesSource: 'Skólahverfareglur Reykjanesbæjar',
     suggestions: function (n) { return n === 1 ? '1 tillaga' : n + ' tillögur'; },
     schoolSentence: function (addr, genitive) { return addr + ' tilheyrir skólahverfi ' + genitive + '.'; },
     viewSchool: function (genitive) { return 'Skoða vef ' + genitive; }
@@ -392,7 +393,7 @@
       ];
       if (detailed) {
         var facts = [h('div', null, [h('dt', { text: 'Heimilisfang' }), h('dd', { text: label + (areaLabel(addr) ? ', ' + areaLabel(addr) : '') })])];
-        facts.push(h('div', null, [h('dt', { text: 'Grunnskóli' }), h('dd', { text: school.name })]));
+        facts.push(h('div', null, [h('dt', { text: 'Heimild' }), h('dd', { text: STR.rulesSource + (state.zones && state.zones.updated ? ', uppfærðar ' + dateIs(state.zones.updated) : '') })]));
         kids.push(h('dl', { class: 'sk-facts' }, facts));
       }
       kids.push(actions(opts.showLinks ? extLink(school.url, STR.viewSchool(school.genitive), 'sk-link-btn sk-btn-primary') : null));

@@ -170,10 +170,14 @@
     return contrast(hex, 'FFFFFF') >= contrast(hex, '10181B') ? 'FFFFFF' : '10181B';
   }
 
-  /* Litapallettur þema; notendalitir yfirskrifa þær */
+  /*
+   * Litapallettur þema; notendalitir yfirskrifa þær. `border` er litur á
+   * mörkum stýringa (reitir, hnappar) og uppfyllir 3:1 (WCAG 1.4.11);
+   * skil og spjöld nota mýkri blöndu af honum.
+   */
   var PALETTE = {
-    light: { bg: 'FFFFFF', text: '1F2629', muted: '4F5B61', border: 'C9D2D6', accent: '2760AB', soft: 'EEF3F9' },
-    dark:  { bg: '1F2427', text: 'E7ECEE', muted: 'A9B5BA', border: '425057', accent: '8DB4EA', soft: '2A3338' }
+    light: { bg: 'FFFFFF', text: '1F2629', muted: '4F5B61', border: '73828A', accent: '2760AB' },
+    dark:  { bg: '1F2427', text: 'E7ECEE', muted: 'A9B5BA', border: '86949A', accent: '8DB4EA' }
   };
 
   /* --------------------------------------------------------------------

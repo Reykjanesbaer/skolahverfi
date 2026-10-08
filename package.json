@@ -4,7 +4,9 @@
   "private": true,
   "description": "Skólahverfaleit Reykjanesbæjar: sjálfstæð vefgræja fyrir GitHub Pages",
   "license": "UNLICENSED",
-  "engines": { "node": ">=22.18" },
+  "engines": {
+    "node": ">=22.18"
+  },
   "scripts": {
     "test": "node --test \"tests/unit/*.test.js\"",
     "test:e2e": "node --test --test-concurrency=1 \"tests/e2e/*.test.js\"",
@@ -16,6 +18,8 @@
     "serve": "node tests/helpers/serve.js"
   },
   "devDependencies": {
-    "playwright-core": "1.56.1"
+    "@types/react": "^18.3.12",
+    "playwright-core": "1.56.1",
+    "typescript": "^5.6.3"
   }
 }

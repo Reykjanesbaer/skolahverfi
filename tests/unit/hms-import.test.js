@@ -28,7 +28,7 @@ test('csv: skiltákn greind (komma, semíkomma, lóðrétt strik, tab)', () => {
 });
 
 test('csv: afkóðun UTF-8 (með BOM) og windows-1252', () => {
-  const utf = csv.decode(Buffer.from('﻿HEITI_NF\nÞórustígur\n', 'utf8'));
+  const utf = csv.decode(Buffer.from(String.fromCharCode(0xfeff) + 'HEITI_NF\nÞórustígur\n', 'utf8'));
   assert.equal(utf.encoding, 'utf-8');
   assert.ok(utf.text.includes('Þórustígur'));
   assert.equal(csv.parseCsv(utf.text)[0][0], 'HEITI_NF', 'BOM fjarlægt');

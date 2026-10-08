@@ -65,7 +65,7 @@ test('textar: hreinsaðir, klipptir við hámark og tómt fellur á sjálfgefið
   assert.equal(cfg.parse('title=a%0Ab%09c').title, 'a b c');
   assert.equal(cfg.parse('title=' + 'x'.repeat(200)).title.length, 80);
   assert.equal(cfg.parse('intro=' + 'y'.repeat(900)).intro.length, 300);
-  assert.equal(cfg.parseText('abc‮def', 80), 'abc def', 'stýristafir fyrir textastefnu fjarlægðir');
+  assert.equal(cfg.parseText('abc' + String.fromCharCode(0x202e) + 'def', 80), 'abc def', 'stýristafir fyrir textastefnu fjarlægðir');
   // HTML er ekki túlkað hér, en er skilað sem texta (viðmótið notar textContent)
   assert.equal(cfg.parse('title=' + encodeURIComponent('<img src=x onerror=alert(1)>')).title, '<img src=x onerror=alert(1)>');
 });
