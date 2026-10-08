@@ -16,6 +16,10 @@ var REASON_TEXT = {
   scope: 'vantar svæðisupplýsingar'
 };
 
+/* Röðun óháð ICU/locale (sama niðurstaða í öllum Node-útgáfum): leitarlykill, svo orðrétt */
+function cmpStr(a, b) { return a < b ? -1 : a > b ? 1 : 0; }
+function cmpName(a, b) { return cmpStr(core.foldAscii(a), core.foldAscii(b)) || cmpStr(a, b); }
+
 function toAddress(rec) {
   return { street: rec.street, number: rec.number, letter: rec.letter || '', suffix: rec.suffix || '', postnr: rec.postnr, byggd: rec.byggd, id: rec.id };
 }
@@ -133,7 +137,7 @@ function analyze(zones, schools, records, meta) {
       .filter(function (h) { return h.d <= 2; }).sort(function (x, y) { return x.d - y.d; }).slice(0, 3).map(function (h) { return h.name; });
     missingInHms.push({ street: a.rule.street, school: a.school, suggestions: sugg });
   });
-  missingInHms.sort(function (a, b) { return a.street.localeCompare(b.street, 'is'); });
+  missingInHms.sort(function (a, b) { return cmpName(a.street, b.street); });
 
   /* 4. Götur í HMS sem engin regla nær yfir */
   var ruleStreetSet = {};
@@ -181,7 +185,7 @@ function analyze(zones, schools, records, meta) {
       });
     }
   });
-  multiArea.sort(function (a, b) { return a.street.localeCompare(b.street, 'is') || a.school.localeCompare(b.school); });
+  multiArea.sort(function (a, b) { return cmpName(a.street, b.street) || cmpStr(a.school, b.school); });
 
   /* 7. Óstaðfest heimilisföng eftir ástæðu */
   var unconfirmedByStreet = {};
@@ -211,7 +215,7 @@ function analyze(zones, schools, records, meta) {
     numberGaps: gaps,
     multiAreaStreets: multiArea,
     unconfirmed: Object.keys(unconfirmedByStreet).map(function (k) { return unconfirmedByStreet[k]; })
-      .sort(function (a, b) { return a.reason.localeCompare(b.reason) || a.street.localeCompare(b.street, 'is'); })
+      .sort(function (a, b) { return cmpStr(a.reason, b.reason) || cmpName(a.street, b.street); })
   };
 }
 
