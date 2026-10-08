@@ -56,3 +56,10 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/check-school-links.js --strict
+      - name: Staða GitHub Pages (upplýsandi)
+        run: |
+          for u in https://reykjanesbaer.github.io/skolahverfi/ https://reykjanesbaer.github.io/skolahverfi/widget/; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 "$u" || true)
+            echo "$u → HTTP $code"
+          done
+          echo "404 þýðir að Pages er ekki virkt eða ekki birt enn: Settings → Pages → Source: GitHub Actions, svo Deploy-workflow á main."
