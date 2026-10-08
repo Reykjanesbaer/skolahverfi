@@ -48,21 +48,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Athuga að nauðsynleg gögn séu til
-        run: |
-          for f in index.html embed.js widget/index.html widget/widget.js widget/widget.css widget/core.js widget/config.js \
-                   widget/data/addresses.json data/school-zones.json data/schools.json admin/admin.js admin/admin.css; do
-            test -s "$f" || { echo "::error::Skrá vantar: $f"; exit 1; }
-          done
-
-      - name: Setja saman vefinn
-        run: |
-          mkdir -p _site/data
-          cp index.html embed.js _site/
-          cp -r widget admin _site/
-          cp data/school-zones.json data/schools.json _site/data/
-          touch _site/.nojekyll
-          find _site -type f | sort
+      - name: Setja saman vefinn (fellur ef nauðsynlega skrá vantar)
+        run: node scripts/build-site.js _site
 
       - uses: actions/configure-pages@v5
 

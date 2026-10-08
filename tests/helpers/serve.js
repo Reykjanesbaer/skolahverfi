@@ -13,7 +13,7 @@ var fs = require('fs');
 var path = require('path');
 var fixture = require('./fixture.js');
 
-var ROOT = fixture.ROOT;
+var REPO_ROOT = fixture.ROOT;
 var BASE = '/skolahverfi/';
 var TYPES = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
@@ -22,6 +22,7 @@ var TYPES = {
 
 function start(port, opts) {
   opts = opts || {};
+  var ROOT = opts.root ? path.resolve(opts.root) : REPO_ROOT;
   var useFixture = opts.fixture !== false;
   var overrides = opts.overrides || {};
   var server = http.createServer(function (req, res) {
