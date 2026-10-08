@@ -35,6 +35,11 @@ function start(port, opts) {
     if (Object.prototype.hasOwnProperty.call(overrides, rel)) {
       var o = overrides[rel];
       if (o === 404) { res.writeHead(404); res.end('Not found'); return; }
+      if (o && typeof o === 'object' && typeof o.body === 'string') {
+        res.writeHead(200, { 'Content-Type': o.type || 'text/html; charset=utf-8' });
+        res.end(o.body);
+        return;
+      }
       res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
       res.end(typeof o === 'string' ? o : JSON.stringify(o));
       return;

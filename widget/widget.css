@@ -209,7 +209,7 @@ body {
 }
 .sk-btn-primary, .sk-link-btn.sk-btn-primary { background: var(--sk-accent); color: var(--sk-on-accent); }
 .sk-btn-primary:hover { background: color-mix(in srgb, var(--sk-accent) 88%, var(--sk-text)); }
-.sk-btn-secondary { background: transparent; color: var(--sk-accent); }
+.sk-btn-secondary { background: var(--sk-bg-solid); color: var(--sk-accent); }
 .sk-btn-secondary:hover { background: var(--sk-soft); }
 .sk-btn:focus-visible, .sk-link-btn:focus-visible, .sk-text-link:focus-visible,
 .sk-all-summary:focus-visible, .sk-school > summary:focus-visible {
