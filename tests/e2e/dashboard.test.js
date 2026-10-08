@@ -24,6 +24,7 @@ async function previewFrame(page) {
 }
 
 const code = (page) => page.locator('#codeOut').innerText();
+const href = (page) => page.evaluate(() => location.href);
 const radio = (page, name, value) => page.locator(`label:has(input[name="${name}"][value="${value}"])`).click();
 const srcOf = (c) => /src="([^"]*)"/.exec(c)[1].replace(/&amp;/g, '&');
 
@@ -171,9 +172,9 @@ test('Endurstilla allar stillingar: form, forskoðun, kóði og slóð', async (
   await page.fill('#hex-text', 'ff0000');
   await page.fill('#width', '60');
   await radio(page, 'align', 'right');
-  assert.notEqual(new URL(page.url()).search, '');
+  assert.notEqual(new URL(await href(page)).search, '');
   await page.click('#resetAll');
-  assert.equal(new URL(page.url()).search, '');
+  assert.equal(new URL(await href(page)).search, '');
   assert.equal(await page.inputValue('#radius'), '12');
   assert.equal(await page.inputValue('#title'), 'Finndu þinn grunnskóla');
   assert.equal(await page.inputValue('#hex-text'), '');
@@ -192,7 +193,7 @@ test('deilanleg slóð: stillingar í slóð endurheimtast og ógild gildi falla
   await page.fill('#radius', '5');
   await page.fill('#title', 'Deilt');
   await page.fill('#maxHeight', '900');
-  const url = page.url();
+  const url = await href(page);
   const search = new URL(url).search;
   assert.match(search, /theme=dark/); assert.match(search, /radius=5/); assert.match(search, /maxHeight=900px/);
   assert.doesNotMatch(search, /fontSize|showTitle/, 'aðeins frávik frá sjálfgefnu');
@@ -248,7 +249,7 @@ test('afrita kóða og slóð: klippiborðið fær nákvæmlega kóðann', async
   assert.equal(await page.locator('#copy').innerText(), 'Afritað');
   await page.waitForFunction(() => document.getElementById('live').textContent === 'Afritað');
   await page.click('#shareUrl');
-  assert.equal(await page.evaluate(() => navigator.clipboard.readText()), page.url());
+  assert.equal(await page.evaluate(() => navigator.clipboard.readText()), await href(page));
   await page.close();
 });
 
