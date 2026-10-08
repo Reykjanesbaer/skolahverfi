@@ -1,0 +1,65 @@
+# Prófanir á hverju PR og hverri breytingu á main.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit:
+    name: Einingapróf og gögn (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm test
+      - name: Sannprófa gagnaskrár
+        run: npm run validate
+      - name: Yfirferðarskrá í takt við gögn
+        run: npm run review:check
+
+  e2e:
+    name: Vafrapróf (farsími, lyklaborð, iframe)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx playwright-core install --with-deps chromium
+      - run: npm run test:e2e
+
+  links:
+    name: Vefslóðir skóla svara (ekki lokandi)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-school-links.js --strict
+      - name: Staða GitHub Pages (upplýsandi)
+        run: |
+          for u in https://reykjanesbaer.github.io/skolahverfi/ https://reykjanesbaer.github.io/skolahverfi/widget/; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 "$u" || true)
+            echo "$u → HTTP $code"
+          done
+          echo "404 þýðir að Pages er ekki virkt eða ekki birt enn: Settings → Pages → Source: GitHub Actions, svo Deploy-workflow á main."

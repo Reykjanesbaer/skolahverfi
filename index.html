@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Skólahverfaleit – forskoðun og kóðasmiður</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="widget/fonts/fonts.css">
+<link rel="stylesheet" href="admin/admin.css">
+</head>
+<body>
+<a class="skip" href="#settings">Fara í stillingar</a>
+<main>
+  <h1>Skólahverfaleit</h1>
+  <p class="lede">Forskoðun og kóðasmiður fyrir vefritstjóra Reykjanesbæjar. Stilltu leitina hér fyrir neðan, prófaðu hana í forskoðuninni og afritaðu innfellingarkóðann.</p>
+
+  <section class="datastatus" id="datastatus" aria-labelledby="ds-title">
+    <h2 id="ds-title">Gagnastaða</h2>
+    <p id="ds-line" class="ds-line">Hleð …</p>
+    <p class="ds-note">Stjórnborðið breytir engum skólahverfagögnum. Reglurnar eru í <code>data/school-zones.json</code> og breytast aðeins með yfirferð (pull request). Óstaðfest skráning er aldrei notuð til að úthluta skóla.</p>
+    <details id="ds-pending" hidden>
+      <summary>Óstaðfestar skráningar (<span id="ds-pending-count">0</span>)</summary>
+      <ul id="ds-pending-list" class="ds-list"></ul>
+    </details>
+  </section>
+
+  <div class="stage" id="stage">
+    <div class="stage-bar">
+      <span class="stage-label" id="pv-label">Forskoðun</span>
+      <div class="seg-ctl" role="radiogroup" aria-labelledby="pv-label">
+        <label><input type="radio" name="pvmode" value="auto" checked>Sjálfvirk hæð</label>
+        <label><input type="radio" name="pvmode" value="fixed">Föst hæð</label>
+      </div>
+    </div>
+    <iframe id="preview" title="Forskoðun: Skólahverfaleit Reykjanesbæjar" loading="eager"></iframe>
+    <p class="sample" id="pv-note"></p>
+  </div>
+
+  <form class="settings" id="settings" aria-label="Stillingar">
+    <h2>Stillingar</h2>
+
+    <fieldset>
+      <legend>Útlit</legend>
+      <div class="grid">
+        <div class="ctl"><span class="head" id="l-theme">Þema</span>
+          <div class="seg-ctl" role="radiogroup" aria-labelledby="l-theme">
+            <label><input type="radio" name="theme" value="auto">Sjálfvirkt</label>
+            <label><input type="radio" name="theme" value="light">Ljóst</label>
+            <label><input type="radio" name="theme" value="dark">Dökkt</label>
+          </div>
+          <div class="checks mt-s"><label><input type="checkbox" name="transparent"> Gegnsær bakgrunnur</label></div></div>
+        <div class="ctl"><label class="head" for="radius">Hornarúnnun <output id="o-radius"></output></label>
+          <input id="radius" name="radius" type="range" min="0" max="40" step="1"></div>
+        <div class="ctl"><label class="head" for="fontSize">Leturstærð <output id="o-fontSize"></output></label>
+          <input id="fontSize" name="fontSize" type="range" min="14" max="22" step="1"></div>
+      </div>
+      <div class="colors-head">
+        <h3>Litir</h3>
+        <button type="button" class="reset" id="resetColors">Sjálfgefnir litir</button>
+      </div>
+      <div class="colors" id="colors"></div>
+      <p class="field-hint">Hex-litur, t.d. <code>2760AB</code>. Tómt = litur þemans. Birtuskil eru reiknuð fyrir þemað sem sést núna.</p>
+      <ul class="contrast" id="contrast" aria-live="polite"></ul>
+    </fieldset>
+
+    <fieldset>
+      <legend>Birting</legend>
+      <div class="grid">
+        <div class="ctl"><span class="head">Fyrirsögn og inngangur</span>
+          <div class="checks">
+            <label><input type="checkbox" name="showTitle"> Sýna fyrirsögn</label>
+            <label><input type="checkbox" name="showIntro"> Sýna inngangstexta</label>
+          </div></div>
+        <div class="ctl"><label class="head" for="title">Fyrirsögn</label>
+          <input id="title" name="title" type="text" maxlength="80" autocomplete="off"></div>
+        <div class="ctl wide"><label class="head" for="intro">Inngangstexti</label>
+          <textarea id="intro" name="intro" rows="2" maxlength="300"></textarea></div>
+        <div class="ctl"><label class="head" for="placeholder">Texti í leitarreit (placeholder)</label>
+          <input id="placeholder" name="placeholder" type="text" maxlength="80" autocomplete="off"></div>
+        <div class="ctl"><span class="head">Sýna</span>
+          <div class="checks">
+            <label><input type="checkbox" name="showSchools"> Lista yfir öll skólahverfi</label>
+            <label><input type="checkbox" name="showLinks"> Hlekki á skóla</label>
+          </div></div>
+        <div class="ctl"><span class="head" id="l-card">Niðurstöðukort</span>
+          <div class="seg-ctl" role="radiogroup" aria-labelledby="l-card">
+            <label><input type="radio" name="card" value="simple">Einfalt</label>
+            <label><input type="radio" name="card" value="detailed">Ítarlegt</label>
+          </div></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Stærð og staðsetning</legend>
+      <div class="grid">
+        <div class="ctl"><label class="head" for="width">Breidd</label>
+          <div class="size">
+            <input id="width" name="width" type="number" inputmode="decimal" min="1" max="2000" aria-describedby="width-hint">
+            <div class="seg-ctl" role="radiogroup" aria-label="Eining breiddar">
+              <label><input type="radio" name="widthUnit" value="%">%</label>
+              <label><input type="radio" name="widthUnit" value="px">px</label>
+            </div>
+          </div>
+          <p class="field-hint" id="width-hint">1–100 % eða 200–2000 px</p></div>
+        <div class="ctl"><label class="head" for="maxWidth">Hámarksbreidd</label>
+          <div class="size">
+            <input id="maxWidth" name="maxWidth" type="number" inputmode="decimal" min="1" max="2000" placeholder="ekkert hámark" aria-describedby="maxw-hint">
+            <div class="seg-ctl" role="radiogroup" aria-label="Eining hámarksbreiddar">
+              <label><input type="radio" name="maxWidthUnit" value="%">%</label>
+              <label><input type="radio" name="maxWidthUnit" value="px">px</label>
+            </div>
+          </div>
+          <p class="field-hint" id="maxw-hint">1–100 % eða 200–2000 px. Tómt = ekkert hámark.</p></div>
+        <div class="ctl"><span class="head" id="l-align">Staðsetning á síðu</span>
+          <div class="seg-ctl" role="radiogroup" aria-labelledby="l-align">
+            <label><input type="radio" name="align" value="left">Vinstri</label>
+            <label><input type="radio" name="align" value="center">Miðja</label>
+            <label><input type="radio" name="align" value="right">Hægri</label>
+          </div></div>
+        <div class="ctl"><label class="head" for="height">Upphafshæð (px)</label>
+          <input id="height" name="height" type="number" inputmode="numeric" min="200" max="2000" aria-describedby="height-hint">
+          <p class="field-hint" id="height-hint">200–2000 px. Notuð þar til græjan lætur vita af réttri hæð, og sem föst hæð í iframe án skriftu (efnið skrunar þá inni í rammanum).</p></div>
+        <div class="ctl"><label class="head" for="minHeight">Lágmarkshæð (px)</label>
+          <input id="minHeight" name="minHeight" type="number" inputmode="numeric" min="100" max="1000" aria-describedby="minh-hint">
+          <p class="field-hint" id="minh-hint">100–1000 px</p></div>
+        <div class="ctl"><label class="head" for="maxHeight">Hámarkshæð (px)</label>
+          <input id="maxHeight" name="maxHeight" type="number" inputmode="numeric" min="300" max="5000" placeholder="ekkert hámark" aria-describedby="maxh-hint">
+          <p class="field-hint" id="maxh-hint">300–5000 px. Tómt = ekkert hámark; efni umfram hámarkið skrunar inni í rammanum.</p></div>
+      </div>
+    </fieldset>
+
+    <div class="form-foot">
+      <button type="button" class="reset" id="resetAll">Endurstilla allar stillingar</button>
+      <button type="button" class="reset" id="shareUrl">Afrita slóð með stillingum</button>
+      <label class="remember"><input type="checkbox" id="remember"> Muna stillingar í þessum vafra</label>
+    </div>
+    <p class="field-hint">Aðeins útlitsstillingar eru vistaðar (í slóðinni og, ef valið, í þessum vafra). Heimilisföng sem slegin eru inn í forskoðun eru aldrei vistuð.</p>
+  </form>
+
+  <section class="code" aria-labelledby="code-title">
+    <h2 id="code-title">Innfellingarkóði</h2>
+    <div class="tabs" role="tablist" aria-label="Tegund kóða">
+      <button type="button" role="tab" id="tab-iframe" aria-selected="true" aria-controls="codepanel" data-tab="iframe">iframe (mælt með)</button>
+      <button type="button" role="tab" id="tab-script" aria-selected="false" aria-controls="codepanel" tabindex="-1" data-tab="script">Skrifta (embed.js)</button>
+      <button type="button" role="tab" id="tab-url" aria-selected="false" aria-controls="codepanel" tabindex="-1" data-tab="url">Slóð</button>
+    </div>
+    <div id="codepanel" role="tabpanel" aria-labelledby="tab-iframe">
+      <pre id="codeOut" tabindex="0" aria-label="Kóði til að afrita"></pre>
+    </div>
+    <div class="code-foot">
+      <p class="hint" id="codeHint"></p>
+      <button type="button" class="copy" id="copy">Afrita kóða</button>
+    </div>
+    <div class="checks base-opt"><label><input type="checkbox" id="useLocalBase"> Nota slóð þessarar síðu í kóðanum (aðeins til prófana)</label></div>
+    <div class="sr-only" id="live" role="status" aria-live="polite"></div>
+  </section>
+
+  <p class="sample">Sjá <a href="https://github.com/Reykjanesbaer/skolahverfi#readme">README</a> fyrir allar stillingar, uppfærslu HMS-gagna og Payload-blokk.</p>
+</main>
+
+<script src="widget/core.js"></script>
+<script src="widget/config.js"></script>
+<script src="admin/admin.js"></script>
+</body>
+</html>

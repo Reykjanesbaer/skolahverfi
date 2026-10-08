@@ -1,0 +1,64 @@
+/*
+ * Skólahverfaleit — letur.
+ *
+ * Græjan notar breytuna --sk-font (widget.css):
+ *   "Circular Std", "Figtree", system-ui, …
+ *
+ * CIRCULAR STD (letur Reykjanesbæjar, leyfisskylt frá Lineto)
+ * Til að virkja: settu vefútgáfur í þessa möppu og taktu athugasemdina af
+ * @font-face-reglunum hér fyrir neðan. Ekki bæta leyfisskyldum leturskrám
+ * við nema leyfi sé fyrir hendi.
+ *
+ *   CircularStd-Book.woff2   → meginmál (400–500)
+ *   CircularStd-Bold.woff2   → hnappar og undirfyrirsagnir (600–700)
+ *   CircularStd-Black.woff2  → fyrirsagnir (800–900)
+ *
+ * Þar til þær eru komnar er Figtree (SIL OFL 1.1) notað, sjá OFL-Figtree.txt.
+ * Figtree inniheldur alla íslensku stafina (Á É Í Ó Ú Ý Þ Æ Ö Ð).
+ */
+
+/*
+@font-face {
+  font-family: "Circular Std";
+  src: url("CircularStd-Book.woff2") format("woff2");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("CircularStd-Bold.woff2") format("woff2");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Circular Std";
+  src: url("CircularStd-Black.woff2") format("woff2");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+@font-face {
+  font-family: "Figtree";
+  src: url("figtree-500.woff2") format("woff2");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("figtree-700.woff2") format("woff2");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("figtree-800.woff2") format("woff2");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}

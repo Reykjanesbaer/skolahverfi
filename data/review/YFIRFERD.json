@@ -1,0 +1,1998 @@
+{
+  "generatedFrom": {
+    "addressesImported": "2026-10-08",
+    "source": "Staðfangaskrá HMS"
+  },
+  "summary": {
+    "addresses": 5767,
+    "confirmed": 4220,
+    "unconfirmed": 1547,
+    "unconfirmedByReason": {
+      "no-rule": 1459,
+      "conflict": 56,
+      "needs-review": 32
+    },
+    "confirmedPerSchool": [
+      {
+        "school": "akurskoli",
+        "name": "Akurskóli",
+        "count": 547
+      },
+      {
+        "school": "haaleitisskoli",
+        "name": "Háaleitisskóli",
+        "count": 260
+      },
+      {
+        "school": "heidarskoli",
+        "name": "Heiðarskóli",
+        "count": 681
+      },
+      {
+        "school": "holtaskoli",
+        "name": "Holtaskóli",
+        "count": 569
+      },
+      {
+        "school": "myllubakkaskoli",
+        "name": "Myllubakkaskóli",
+        "count": 701
+      },
+      {
+        "school": "njardvikurskoli",
+        "name": "Njarðvíkurskóli",
+        "count": 884
+      },
+      {
+        "school": "stapaskoli",
+        "name": "Stapaskóli",
+        "count": 578
+      }
+    ],
+    "rules": 208,
+    "streetsInHms": 350,
+    "streetsWithRules": 200
+  },
+  "pendingRules": [
+    {
+      "id": "akurskoli/Tjarnargata",
+      "school": "akurskoli",
+      "rule": "Tjarnargata",
+      "note": "Tjarnargata er í upphafslistanum bæði hjá Akurskóla (öll gatan) og Myllubakka-/Holtaskóla (númerabil). HMS sýnir götuna í tveimur byggðum: 04 (póstnúmer 230) og 05 (póstnúmer 260). Tillaga til staðfestingar: afmarka þessa reglu við póstnúmer 260. Þar til það er staðfest er öll gatan óstaðfest."
+    },
+    {
+      "id": "njardvikurskoli/Klapparstígur",
+      "school": "njardvikurskoli",
+      "rule": "Klapparstígur",
+      "note": "Sjá athugasemd við Klapparstíg hjá Myllubakkaskóla. Tillaga til staðfestingar: afmarka við póstnúmer 260."
+    },
+    {
+      "id": "myllubakkaskoli/Klapparstígur",
+      "school": "myllubakkaskoli",
+      "rule": "Klapparstígur",
+      "note": "Klapparstígur er bæði hjá Myllubakkaskóla og Njarðvíkurskóla. HMS sýnir götuna í tveimur byggðum: 04 (póstnúmer 230) og 05 (póstnúmer 260). Tillaga til staðfestingar: afmarka við póstnúmer 230. Þar til það er staðfest er öll gatan óstaðfest."
+    },
+    {
+      "id": "myllubakkaskoli/Sólvallagata",
+      "school": "myllubakkaskoli",
+      "rule": "Sólvallagata",
+      "note": "Í upphafslistanum stóð „Sólvallargata“, sem er ekki til í Staðfangaskrá. Eina líka gatan í HMS er „Sólvallagata“ (póstnúmer 230). Tillaga: leiðrétta ritháttinn. Þar til Reykjanesbær hefur staðfest er gatan óstaðfest."
+    }
+  ],
+  "conflicts": [
+    {
+      "street": "Klapparstígur",
+      "rules": [
+        {
+          "id": "njardvikurskoli/Klapparstígur",
+          "school": "njardvikurskoli",
+          "rule": "Klapparstígur",
+          "status": "needs-review",
+          "scope": null
+        },
+        {
+          "id": "myllubakkaskoli/Klapparstígur",
+          "school": "myllubakkaskoli",
+          "rule": "Klapparstígur",
+          "status": "needs-review",
+          "scope": null
+        }
+      ],
+      "hms": [
+        {
+          "area": "230/4",
+          "postnr": 230,
+          "byggd": 4,
+          "count": 9,
+          "numbers": "2–9, 11"
+        },
+        {
+          "area": "260/5",
+          "postnr": 260,
+          "byggd": 5,
+          "count": 14,
+          "numbers": "1–2, 4–14, 16"
+        }
+      ],
+      "affectedAddresses": 23
+    },
+    {
+      "street": "Tjarnargata",
+      "rules": [
+        {
+          "id": "akurskoli/Tjarnargata",
+          "school": "akurskoli",
+          "rule": "Tjarnargata",
+          "status": "needs-review",
+          "scope": null
+        },
+        {
+          "id": "holtaskoli/Tjarnargata 24–41",
+          "school": "holtaskoli",
+          "rule": "Tjarnargata 24–41",
+          "status": "confirmed",
+          "scope": null
+        },
+        {
+          "id": "myllubakkaskoli/Tjarnargata 6–22",
+          "school": "myllubakkaskoli",
+          "rule": "Tjarnargata 6–22",
+          "status": "confirmed",
+          "scope": null
+        }
+      ],
+      "hms": [
+        {
+          "area": "230/4",
+          "postnr": 230,
+          "byggd": 4,
+          "count": 30,
+          "numbers": "2–3, 6–7, 9, 12, 17, 19–20, 22, 24–31, 33–36, 38–41"
+        },
+        {
+          "area": "260/5",
+          "postnr": 260,
+          "byggd": 5,
+          "count": 3,
+          "numbers": "4, 6, 10"
+        }
+      ],
+      "affectedAddresses": 33
+    }
+  ],
+  "missingInHms": [],
+  "streetsWithoutRules": [
+    {
+      "street": "Afreksbraut",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "10"
+    },
+    {
+      "street": "Axartröð",
+      "count": 3,
+      "postnr": "262",
+      "numbers": "1, 5, 7"
+    },
+    {
+      "street": "Aðaltröð",
+      "count": 3,
+      "postnr": "262",
+      "numbers": "2, 4, 6"
+    },
+    {
+      "street": "Bakkastígur",
+      "count": 7,
+      "postnr": "260",
+      "numbers": "10, 12, 14, 16, 20, 22"
+    },
+    {
+      "street": "Berghólabraut",
+      "count": 6,
+      "postnr": "230",
+      "numbers": "2, 5, 7–9"
+    },
+    {
+      "street": "Bogatröð",
+      "count": 19,
+      "postnr": "262",
+      "numbers": "1–5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33"
+    },
+    {
+      "street": "Bolafótur",
+      "count": 17,
+      "postnr": "260",
+      "numbers": "1, 3, 5, 7, 9, 11, 13, 15, 17, 19"
+    },
+    {
+      "street": "Brautarsel",
+      "count": 27,
+      "postnr": "260",
+      "numbers": "30–40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70"
+    },
+    {
+      "street": "Breiðasel",
+      "count": 37,
+      "postnr": "260",
+      "numbers": "30–59, 61, 63, 65, 67, 69, 71, 73"
+    },
+    {
+      "street": "Broadstreetsvæði",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Bæjarland",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Bæjarland KEF",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "C svæði RNB Ásbrú",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Dreifistöð",
+      "count": 10,
+      "postnr": "230, 233, 262",
+      "numbers": "27"
+    },
+    {
+      "street": "Dreifistöð DRE",
+      "count": 9,
+      "postnr": "260, 262",
+      "numbers": "246, 711–718"
+    },
+    {
+      "street": "Dreifistöð HS",
+      "count": 1,
+      "postnr": "262",
+      "numbers": "724"
+    },
+    {
+      "street": "Drekadalur",
+      "count": 24,
+      "postnr": "260",
+      "numbers": "1–5, 7, 9"
+    },
+    {
+      "street": "Duusgata",
+      "count": 3,
+      "postnr": "230",
+      "numbers": "2, 5, 10"
+    },
+    {
+      "street": "Dvergadalur",
+      "count": 32,
+      "postnr": "260",
+      "numbers": "1–12, 14, 16, 18, 20"
+    },
+    {
+      "street": "Dísardalur",
+      "count": 42,
+      "postnr": "260",
+      "numbers": "1–7, 9"
+    },
+    {
+      "street": "Efrilaut",
+      "count": 15,
+      "postnr": "230",
+      "numbers": "1–14, 16"
+    },
+    {
+      "street": "Faxagrund",
+      "count": 21,
+      "postnr": "230",
+      "numbers": "1–16, 18, 20"
+    },
+    {
+      "street": "Ferjutröð",
+      "count": 6,
+      "postnr": "262",
+      "numbers": "9, 11, 15, 540, 2060"
+    },
+    {
+      "street": "Fitjabakki",
+      "count": 10,
+      "postnr": "260",
+      "numbers": "1–3, 6, 8"
+    },
+    {
+      "street": "Fitjar",
+      "count": 5,
+      "postnr": "260",
+      "numbers": "1–4"
+    },
+    {
+      "street": "Flaggstangarhóll",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Flugbrautasvæði",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Flugvallarbraut",
+      "count": 20,
+      "postnr": "262",
+      "numbers": "701, 705, 710, 730–734, 736, 740, 752, 772, 790, 936–937, 939, 941"
+    },
+    {
+      "street": "Flugvallarsvæði úr Reykjanesbæ",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Flugvallarvegur",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "50"
+    },
+    {
+      "street": "Flugvellir",
+      "count": 45,
+      "postnr": "230",
+      "numbers": "1, 4–10, 12, 14–18, 20, 22–23, 25, 27, 29, 31, 33"
+    },
+    {
+      "street": "Fuglavík",
+      "count": 58,
+      "postnr": "230",
+      "numbers": "1–21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49"
+    },
+    {
+      "street": "Funatröð",
+      "count": 10,
+      "postnr": "262",
+      "numbers": "1–8, 10, 12"
+    },
+    {
+      "street": "Garðhús",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Garðhús Nesvegur",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Grenidalur",
+      "count": 24,
+      "postnr": "260",
+      "numbers": "2, 4, 6, 8, 10, 12"
+    },
+    {
+      "street": "Grænalaut",
+      "count": 28,
+      "postnr": "230",
+      "numbers": "1–25, 27, 29, 31"
+    },
+    {
+      "street": "Grænivöllur",
+      "count": 5,
+      "postnr": "230, 235",
+      "numbers": "2, 4, 10, 18, 28"
+    },
+    {
+      "street": "Grænásvegur",
+      "count": 3,
+      "postnr": "230",
+      "numbers": "6, 10, 14"
+    },
+    {
+      "street": "Grófin",
+      "count": 36,
+      "postnr": "230",
+      "numbers": "2, 5–10, 12–20"
+    },
+    {
+      "street": "Hafnajarðir",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Hafnarbakki",
+      "count": 24,
+      "postnr": "260",
+      "numbers": "2, 4–5, 7, 9–11, 13, 15, 19"
+    },
+    {
+      "street": "Hafnarbraut",
+      "count": 15,
+      "postnr": "260",
+      "numbers": "1–2, 4, 6, 12"
+    },
+    {
+      "street": "Hafnarvegur",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Hafnavegur",
+      "count": 2,
+      "postnr": "260",
+      "numbers": "5, 7"
+    },
+    {
+      "street": "Heiðartröð",
+      "count": 13,
+      "postnr": "262",
+      "numbers": "2, 517–518, 554–555, 557"
+    },
+    {
+      "street": "Hjallalaut",
+      "count": 15,
+      "postnr": "230",
+      "numbers": "1–15"
+    },
+    {
+      "street": "Hjallar",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "1"
+    },
+    {
+      "street": "Hjalli",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "HS-Heitt",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "HS-Kalt",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Huldudalur",
+      "count": 17,
+      "postnr": "260",
+      "numbers": "1, 3, 7, 9, 13, 17, 19, 21, 25, 27, 31, 33"
+    },
+    {
+      "street": "Hvalvík",
+      "count": 6,
+      "postnr": "230",
+      "numbers": "2, 4, 6, 8"
+    },
+    {
+      "street": "Hvammur",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Háaleitishlað",
+      "count": 16,
+      "postnr": "235",
+      "numbers": "1–2, 4, 6, 8, 10, 12, 20, 22–27, 29"
+    },
+    {
+      "street": "Hólamið",
+      "count": 21,
+      "postnr": "230",
+      "numbers": "1–12, 14, 16, 18, 20, 22, 24, 26, 28"
+    },
+    {
+      "street": "Hólmbergsbraut",
+      "count": 92,
+      "postnr": "230",
+      "numbers": "1–3, 5, 7–11, 13–14, 16–17, 19"
+    },
+    {
+      "street": "Hólshús",
+      "count": 2,
+      "postnr": "233",
+      "numbers": "1–2"
+    },
+    {
+      "street": "Hólsvöllur",
+      "count": 2,
+      "postnr": "235",
+      "numbers": "2, 11"
+    },
+    {
+      "street": "Höskuldarkot",
+      "count": 2,
+      "postnr": "260",
+      "numbers": "3"
+    },
+    {
+      "street": "Innri Njarðvíkur",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Iðavellir",
+      "count": 28,
+      "postnr": "230",
+      "numbers": "1–14"
+    },
+    {
+      "street": "Iðjustígur",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "1"
+    },
+    {
+      "street": "Iðnaðarsv. Helguví",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Jaðar",
+      "count": 1,
+      "postnr": "241",
+      "numbers": "–"
+    },
+    {
+      "street": "Jörðin Keflavík",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Jötundalur",
+      "count": 42,
+      "postnr": "260",
+      "numbers": "1–7, 9"
+    },
+    {
+      "street": "Kalmanshraun",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "1"
+    },
+    {
+      "street": "Kalmanstjörn",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Keflavíkurvegur",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "31"
+    },
+    {
+      "street": "Kirkjuvogur Austurbær",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Klettatröð",
+      "count": 31,
+      "postnr": "262",
+      "numbers": "1–16, 19, 21, 23"
+    },
+    {
+      "street": "Kliftröð",
+      "count": 16,
+      "postnr": "262",
+      "numbers": "1–5, 7, 9, 11, 13–14, 16, 19, 21, 23, 25, 27"
+    },
+    {
+      "street": "Klöpp",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Kotvogur",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Kraginn",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Kristjánsskák",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Land M nr. 2",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "0"
+    },
+    {
+      "street": "Land nr",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "5"
+    },
+    {
+      "street": "Landeig YNj Stapafell",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Lónsbraut",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "1"
+    },
+    {
+      "street": "Lóð úr l Innri Njarðv",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Merkines Vesturbær",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Millispilda",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Mánagrund",
+      "count": 25,
+      "postnr": "230",
+      "numbers": "0–17, 19, 21, 23, 25"
+    },
+    {
+      "street": "Móavellir",
+      "count": 8,
+      "postnr": "260",
+      "numbers": "1–6"
+    },
+    {
+      "street": "Narfakotstún",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Neðra-Nikel",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Njarðarbraut",
+      "count": 77,
+      "postnr": "260",
+      "numbers": "1, 3, 5, 7, 9–11, 13, 15, 17, 19–20"
+    },
+    {
+      "street": "Njarðvíkurheiði",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Nr. 11 Land við Hafnir",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Nr. 14",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Nr. 15",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Nr. 17",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Nr.18",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Pétursvöllur",
+      "count": 5,
+      "postnr": "230, 235",
+      "numbers": "2, 6, 8, 15"
+    },
+    {
+      "street": "Rauðamelur",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Rauðamelur - Náma",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Reykjanes-aðalviti",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Reykjanesvitabraut",
+      "count": 2,
+      "postnr": "233",
+      "numbers": "1–2"
+    },
+    {
+      "street": "Reykjanesviti",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Risadalur",
+      "count": 20,
+      "postnr": "260",
+      "numbers": "1–5"
+    },
+    {
+      "street": "Réttarhús",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Sakksbraut",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "7"
+    },
+    {
+      "street": "Seljubraut",
+      "count": 3,
+      "postnr": "262",
+      "numbers": "641, 645, 654"
+    },
+    {
+      "street": "Selvík",
+      "count": 14,
+      "postnr": "230",
+      "numbers": "1–9, 11, 13, 15, 17, 23"
+    },
+    {
+      "street": "Seylubraut",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "1"
+    },
+    {
+      "street": "Sjónarhóll",
+      "count": 10,
+      "postnr": "260",
+      "numbers": "2, 4, 6, 8"
+    },
+    {
+      "street": "Skógarhlíð",
+      "count": 4,
+      "postnr": "262",
+      "numbers": "–"
+    },
+    {
+      "street": "Skólatorg",
+      "count": 2,
+      "postnr": "230",
+      "numbers": "7, 9"
+    },
+    {
+      "street": "Smiðjutröð",
+      "count": 8,
+      "postnr": "262",
+      "numbers": "1, 3, 5, 7, 9, 11, 13, 15"
+    },
+    {
+      "street": "Smiðjuvellir",
+      "count": 94,
+      "postnr": "230",
+      "numbers": "2, 4–10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150, 152, 154, 156, 158, 160, 162, 164, 166, 168, 170, 172, 174, 176, 186, 188"
+    },
+    {
+      "street": "Spilda 1",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Spilda 2",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Spilda 3",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Spilda úr Kotvogi",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Stakksbraut",
+      "count": 16,
+      "postnr": "230",
+      "numbers": "0–5, 9, 11, 13, 15, 50"
+    },
+    {
+      "street": "Stapabraut",
+      "count": 9,
+      "postnr": "260",
+      "numbers": "1–3, 5, 7, 9, 15, 21"
+    },
+    {
+      "street": "Stapafell",
+      "count": 2,
+      "postnr": "233, 260",
+      "numbers": "–"
+    },
+    {
+      "street": "Stapakot I",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Staðarhóll",
+      "count": 3,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Stóriðjulóð",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Suðurgata",
+      "count": 50,
+      "postnr": "230",
+      "numbers": "1–9, 11–13, 16–20, 22–52"
+    },
+    {
+      "street": "Svæði",
+      "count": 2,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Sólbrekkuskjól",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "1"
+    },
+    {
+      "street": "Sölvalaut",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Sörlagrund",
+      "count": 12,
+      "postnr": "230",
+      "numbers": "1–7"
+    },
+    {
+      "street": "T",
+      "count": 1,
+      "postnr": "262",
+      "numbers": "–"
+    },
+    {
+      "street": "Teigur",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Thorkilligarður",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Tjarnarbakki",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Tjarnarkot",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Trölladalur",
+      "count": 49,
+      "postnr": "260",
+      "numbers": "1–12, 14"
+    },
+    {
+      "street": "Trönudalur",
+      "count": 8,
+      "postnr": "260",
+      "numbers": "1, 3, 5, 7, 9, 11, 13, 15"
+    },
+    {
+      "street": "Unnardalur",
+      "count": 37,
+      "postnr": "260",
+      "numbers": "1, 3, 5–7, 9, 11, 13, 21"
+    },
+    {
+      "street": "Valhallarbr.",
+      "count": 1,
+      "postnr": "262",
+      "numbers": "–"
+    },
+    {
+      "street": "Vallarsel",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "1"
+    },
+    {
+      "street": "Vatnsnes",
+      "count": 1,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Vegagerðin",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Vesturbær",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "1"
+    },
+    {
+      "street": "Vesturhús",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Vogshóll",
+      "count": 9,
+      "postnr": "260",
+      "numbers": "1–2, 4, 6, 8, 10, 12, 14"
+    },
+    {
+      "street": "Víðdalur",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "72"
+    },
+    {
+      "street": "YNJ óskipt",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    },
+    {
+      "street": "Ytri-Njarðvík",
+      "count": 2,
+      "postnr": "260",
+      "numbers": "1–2"
+    },
+    {
+      "street": "Álfadalur",
+      "count": 28,
+      "postnr": "260",
+      "numbers": "1–16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40"
+    },
+    {
+      "street": "Úr landi Kirkjuvogs",
+      "count": 1,
+      "postnr": "233",
+      "numbers": "–"
+    },
+    {
+      "street": "Þjóðbraut",
+      "count": 2,
+      "postnr": "230, 262",
+      "numbers": "838"
+    },
+    {
+      "street": "Þrætuland",
+      "count": 2,
+      "postnr": "230",
+      "numbers": "–"
+    },
+    {
+      "street": "Þórukot",
+      "count": 1,
+      "postnr": "260",
+      "numbers": "–"
+    }
+  ],
+  "numberGaps": [
+    {
+      "street": "Skólavegur",
+      "count": 5,
+      "numbers": "46, 48, 50, 52, 54",
+      "withoutNumber": 0
+    },
+    {
+      "street": "Sunnubraut",
+      "count": 4,
+      "numbers": "33, 35, 56",
+      "withoutNumber": 1
+    },
+    {
+      "street": "Vesturgata",
+      "count": 1,
+      "numbers": "–",
+      "withoutNumber": 1
+    }
+  ],
+  "multiAreaStreets": [
+    {
+      "street": "Klapparstígur",
+      "school": "myllubakkaskoli",
+      "rule": "Klapparstígur",
+      "effective": "conflict",
+      "postnr": [
+        {
+          "postnr": "230",
+          "count": 9
+        },
+        {
+          "postnr": "260",
+          "count": 14
+        }
+      ],
+      "areas": [
+        {
+          "area": "230/4",
+          "postnr": 230,
+          "byggd": 4,
+          "count": 9,
+          "numbers": "2–9, 11"
+        },
+        {
+          "area": "260/5",
+          "postnr": 260,
+          "byggd": 5,
+          "count": 14,
+          "numbers": "1–2, 4–14, 16"
+        }
+      ]
+    },
+    {
+      "street": "Klapparstígur",
+      "school": "njardvikurskoli",
+      "rule": "Klapparstígur",
+      "effective": "conflict",
+      "postnr": [
+        {
+          "postnr": "230",
+          "count": 9
+        },
+        {
+          "postnr": "260",
+          "count": 14
+        }
+      ],
+      "areas": [
+        {
+          "area": "230/4",
+          "postnr": 230,
+          "byggd": 4,
+          "count": 9,
+          "numbers": "2–9, 11"
+        },
+        {
+          "area": "260/5",
+          "postnr": 260,
+          "byggd": 5,
+          "count": 14,
+          "numbers": "1–2, 4–14, 16"
+        }
+      ]
+    },
+    {
+      "street": "Tjarnargata",
+      "school": "akurskoli",
+      "rule": "Tjarnargata",
+      "effective": "conflict",
+      "postnr": [
+        {
+          "postnr": "230",
+          "count": 30
+        },
+        {
+          "postnr": "260",
+          "count": 3
+        }
+      ],
+      "areas": [
+        {
+          "area": "230/4",
+          "postnr": 230,
+          "byggd": 4,
+          "count": 30,
+          "numbers": "2–3, 6–7, 9, 12, 17, 19–20, 22, 24–31, 33–36, 38–41"
+        },
+        {
+          "area": "260/5",
+          "postnr": 260,
+          "byggd": 5,
+          "count": 3,
+          "numbers": "4, 6, 10"
+        }
+      ]
+    },
+    {
+      "street": "Tjarnargata",
+      "school": "myllubakkaskoli",
+      "rule": "Tjarnargata 6–22",
+      "effective": "conflict",
+      "postnr": [
+        {
+          "postnr": "230",
+          "count": 9
+        },
+        {
+          "postnr": "260",
+          "count": 2
+        }
+      ],
+      "areas": [
+        {
+          "area": "230/4",
+          "postnr": 230,
+          "byggd": 4,
+          "count": 9,
+          "numbers": "6–7, 9, 12, 17, 19–20, 22"
+        },
+        {
+          "area": "260/5",
+          "postnr": 260,
+          "byggd": 5,
+          "count": 2,
+          "numbers": "6, 10"
+        }
+      ]
+    }
+  ],
+  "unconfirmed": [
+    {
+      "reason": "conflict",
+      "street": "Klapparstígur",
+      "count": 23
+    },
+    {
+      "reason": "conflict",
+      "street": "Tjarnargata",
+      "count": 33
+    },
+    {
+      "reason": "needs-review",
+      "street": "Sólvallagata",
+      "count": 32
+    },
+    {
+      "reason": "no-rule",
+      "street": "Aðaltröð",
+      "count": 3
+    },
+    {
+      "reason": "no-rule",
+      "street": "Afreksbraut",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Álfadalur",
+      "count": 28
+    },
+    {
+      "reason": "no-rule",
+      "street": "Axartröð",
+      "count": 3
+    },
+    {
+      "reason": "no-rule",
+      "street": "Bæjarland",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Bæjarland KEF",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Bakkastígur",
+      "count": 7
+    },
+    {
+      "reason": "no-rule",
+      "street": "Berghólabraut",
+      "count": 6
+    },
+    {
+      "reason": "no-rule",
+      "street": "Bogatröð",
+      "count": 19
+    },
+    {
+      "reason": "no-rule",
+      "street": "Bolafótur",
+      "count": 17
+    },
+    {
+      "reason": "no-rule",
+      "street": "Brautarsel",
+      "count": 27
+    },
+    {
+      "reason": "no-rule",
+      "street": "Breiðasel",
+      "count": 37
+    },
+    {
+      "reason": "no-rule",
+      "street": "Broadstreetsvæði",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "C svæði RNB Ásbrú",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Dísardalur",
+      "count": 42
+    },
+    {
+      "reason": "no-rule",
+      "street": "Dreifistöð",
+      "count": 10
+    },
+    {
+      "reason": "no-rule",
+      "street": "Dreifistöð DRE",
+      "count": 9
+    },
+    {
+      "reason": "no-rule",
+      "street": "Dreifistöð HS",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Drekadalur",
+      "count": 24
+    },
+    {
+      "reason": "no-rule",
+      "street": "Duusgata",
+      "count": 3
+    },
+    {
+      "reason": "no-rule",
+      "street": "Dvergadalur",
+      "count": 32
+    },
+    {
+      "reason": "no-rule",
+      "street": "Efrilaut",
+      "count": 15
+    },
+    {
+      "reason": "no-rule",
+      "street": "Faxagrund",
+      "count": 21
+    },
+    {
+      "reason": "no-rule",
+      "street": "Ferjutröð",
+      "count": 6
+    },
+    {
+      "reason": "no-rule",
+      "street": "Fitjabakki",
+      "count": 10
+    },
+    {
+      "reason": "no-rule",
+      "street": "Fitjar",
+      "count": 5
+    },
+    {
+      "reason": "no-rule",
+      "street": "Flaggstangarhóll",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Flugbrautasvæði",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Flugvallarbraut",
+      "count": 20
+    },
+    {
+      "reason": "no-rule",
+      "street": "Flugvallarsvæði úr Reykjanesbæ",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Flugvallarvegur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Flugvellir",
+      "count": 45
+    },
+    {
+      "reason": "no-rule",
+      "street": "Fuglavík",
+      "count": 58
+    },
+    {
+      "reason": "no-rule",
+      "street": "Funatröð",
+      "count": 10
+    },
+    {
+      "reason": "no-rule",
+      "street": "Garðhús",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Garðhús Nesvegur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Grænalaut",
+      "count": 28
+    },
+    {
+      "reason": "no-rule",
+      "street": "Grænásvegur",
+      "count": 3
+    },
+    {
+      "reason": "no-rule",
+      "street": "Grænivöllur",
+      "count": 5
+    },
+    {
+      "reason": "no-rule",
+      "street": "Grenidalur",
+      "count": 24
+    },
+    {
+      "reason": "no-rule",
+      "street": "Grófin",
+      "count": 36
+    },
+    {
+      "reason": "no-rule",
+      "street": "Háaleitishlað",
+      "count": 16
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hafnajarðir",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hafnarbakki",
+      "count": 24
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hafnarbraut",
+      "count": 15
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hafnarvegur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hafnavegur",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Heiðartröð",
+      "count": 13
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hjallalaut",
+      "count": 15
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hjallar",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hjalli",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hólamið",
+      "count": 21
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hólmbergsbraut",
+      "count": 92
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hólshús",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hólsvöllur",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Höskuldarkot",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "HS-Heitt",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "HS-Kalt",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Huldudalur",
+      "count": 17
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hvalvík",
+      "count": 6
+    },
+    {
+      "reason": "no-rule",
+      "street": "Hvammur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Iðavellir",
+      "count": 28
+    },
+    {
+      "reason": "no-rule",
+      "street": "Iðjustígur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Iðnaðarsv. Helguví",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Innri Njarðvíkur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Jaðar",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Jörðin Keflavík",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Jötundalur",
+      "count": 42
+    },
+    {
+      "reason": "no-rule",
+      "street": "Kalmanshraun",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Kalmanstjörn",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Keflavíkurvegur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Kirkjuvogur Austurbær",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Klettatröð",
+      "count": 31
+    },
+    {
+      "reason": "no-rule",
+      "street": "Kliftröð",
+      "count": 16
+    },
+    {
+      "reason": "no-rule",
+      "street": "Klöpp",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Kotvogur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Kraginn",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Kristjánsskák",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Land M nr. 2",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Land nr",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Landeig YNj Stapafell",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Lóð úr l Innri Njarðv",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Lónsbraut",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Mánagrund",
+      "count": 25
+    },
+    {
+      "reason": "no-rule",
+      "street": "Merkines Vesturbær",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Millispilda",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Móavellir",
+      "count": 8
+    },
+    {
+      "reason": "no-rule",
+      "street": "Narfakotstún",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Neðra-Nikel",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Njarðarbraut",
+      "count": 77
+    },
+    {
+      "reason": "no-rule",
+      "street": "Njarðvíkurheiði",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Nr. 11 Land við Hafnir",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Nr. 14",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Nr. 15",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Nr. 17",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Nr.18",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Pétursvöllur",
+      "count": 5
+    },
+    {
+      "reason": "no-rule",
+      "street": "Rauðamelur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Rauðamelur - Náma",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Réttarhús",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Reykjanes-aðalviti",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Reykjanesvitabraut",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Reykjanesviti",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Risadalur",
+      "count": 20
+    },
+    {
+      "reason": "no-rule",
+      "street": "Sakksbraut",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Seljubraut",
+      "count": 3
+    },
+    {
+      "reason": "no-rule",
+      "street": "Selvík",
+      "count": 14
+    },
+    {
+      "reason": "no-rule",
+      "street": "Seylubraut",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Sjónarhóll",
+      "count": 10
+    },
+    {
+      "reason": "no-rule",
+      "street": "Skógarhlíð",
+      "count": 4
+    },
+    {
+      "reason": "no-rule",
+      "street": "Skólatorg",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Skólavegur",
+      "count": 5
+    },
+    {
+      "reason": "no-rule",
+      "street": "Smiðjutröð",
+      "count": 8
+    },
+    {
+      "reason": "no-rule",
+      "street": "Smiðjuvellir",
+      "count": 94
+    },
+    {
+      "reason": "no-rule",
+      "street": "Sólbrekkuskjól",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Sölvalaut",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Sörlagrund",
+      "count": 12
+    },
+    {
+      "reason": "no-rule",
+      "street": "Spilda 1",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Spilda 2",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Spilda 3",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Spilda úr Kotvogi",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Staðarhóll",
+      "count": 3
+    },
+    {
+      "reason": "no-rule",
+      "street": "Stakksbraut",
+      "count": 16
+    },
+    {
+      "reason": "no-rule",
+      "street": "Stapabraut",
+      "count": 9
+    },
+    {
+      "reason": "no-rule",
+      "street": "Stapafell",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Stapakot I",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Stóriðjulóð",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Suðurgata",
+      "count": 50
+    },
+    {
+      "reason": "no-rule",
+      "street": "Sunnubraut",
+      "count": 4
+    },
+    {
+      "reason": "no-rule",
+      "street": "Svæði",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "T",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Teigur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Þjóðbraut",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Thorkilligarður",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Þórukot",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Þrætuland",
+      "count": 2
+    },
+    {
+      "reason": "no-rule",
+      "street": "Tjarnarbakki",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Tjarnarkot",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Trölladalur",
+      "count": 49
+    },
+    {
+      "reason": "no-rule",
+      "street": "Trönudalur",
+      "count": 8
+    },
+    {
+      "reason": "no-rule",
+      "street": "Unnardalur",
+      "count": 37
+    },
+    {
+      "reason": "no-rule",
+      "street": "Úr landi Kirkjuvogs",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Valhallarbr.",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Vallarsel",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Vatnsnes",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Vegagerðin",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Vesturbær",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Vesturgata",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Vesturhús",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Víðdalur",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Vogshóll",
+      "count": 9
+    },
+    {
+      "reason": "no-rule",
+      "street": "YNJ óskipt",
+      "count": 1
+    },
+    {
+      "reason": "no-rule",
+      "street": "Ytri-Njarðvík",
+      "count": 2
+    }
+  ]
+}

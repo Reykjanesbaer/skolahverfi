@@ -1,0 +1,723 @@
+{
+  "schemaVersion": 1,
+  "municipality": {
+    "code": 2000,
+    "name": "Reykjanesbær"
+  },
+  "source": "Upphafslisti Reykjanesbæjar um skólahverfi grunnskóla (verkefnalýsing, okt. 2026). Óstaðfest gögn: til yfirferðar áður en þau eru birt opinberlega.",
+  "updated": "2026-10-08",
+  "conventions": {
+    "numbers": "Bil eru með báðum mörkum. Bókstafur við húsnúmer fylgir númerinu (36A telst vera 36).",
+    "status": "Regla sem hefur status \"needs-review\" staðfestir aldrei skóla. Reglur ólíkra skóla sem skarast á sömu götu gera allar götuna óstaðfesta.",
+    "scope": "Valfrjálst scope {postnr:[…], byggd:[…]} afmarkar reglu við póstsvæði eða byggð úr Staðfangaskrá."
+  },
+  "zones": [
+    {
+      "school": "akurskoli",
+      "rules": [
+        {
+          "street": "Akurbraut"
+        },
+        {
+          "street": "Álftatjörn"
+        },
+        {
+          "street": "Blikatjörn"
+        },
+        {
+          "street": "Erlutjörn"
+        },
+        {
+          "street": "Guðnýjarbraut"
+        },
+        {
+          "street": "Háseyla"
+        },
+        {
+          "street": "Kirkjubraut"
+        },
+        {
+          "street": "Kópubraut"
+        },
+        {
+          "street": "Lágseyla"
+        },
+        {
+          "street": "Lómatjörn"
+        },
+        {
+          "street": "Mávatjörn"
+        },
+        {
+          "street": "Njarðvíkurbraut"
+        },
+        {
+          "street": "Skólabraut"
+        },
+        {
+          "street": "Stekkjargata"
+        },
+        {
+          "street": "Svölutjörn"
+        },
+        {
+          "street": "Súlutjörn"
+        },
+        {
+          "street": "Stapagata"
+        },
+        {
+          "street": "Tjarnabakki"
+        },
+        {
+          "street": "Tjarnabraut"
+        },
+        {
+          "street": "Tjarnargata",
+          "status": "needs-review",
+          "note": "Tjarnargata er í upphafslistanum bæði hjá Akurskóla (öll gatan) og Myllubakka-/Holtaskóla (númerabil). HMS sýnir götuna í tveimur byggðum: 04 (póstnúmer 230) og 05 (póstnúmer 260). Tillaga til staðfestingar: afmarka þessa reglu við póstnúmer 260. Þar til það er staðfest er öll gatan óstaðfest."
+        },
+        {
+          "street": "Urðarbraut"
+        },
+        {
+          "street": "Þrastartjörn"
+        }
+      ]
+    },
+    {
+      "school": "haaleitisskoli",
+      "rules": [
+        {
+          "street": "Bogabraut"
+        },
+        {
+          "street": "Breiðbraut"
+        },
+        {
+          "street": "Fjörubraut"
+        },
+        {
+          "street": "Grænásbraut"
+        },
+        {
+          "street": "Keilisbraut"
+        },
+        {
+          "street": "Lindarbraut"
+        },
+        {
+          "street": "Skógarbraut"
+        },
+        {
+          "street": "Suðurbraut"
+        },
+        {
+          "street": "Valhallarbraut"
+        },
+        {
+          "street": "Víkingabraut"
+        }
+      ]
+    },
+    {
+      "school": "heidarskoli",
+      "rules": [
+        {
+          "street": "Álsvellir"
+        },
+        {
+          "street": "Ásgarður"
+        },
+        {
+          "street": "Baldursgarður"
+        },
+        {
+          "street": "Bjarnarvellir"
+        },
+        {
+          "street": "Bragavellir"
+        },
+        {
+          "street": "Drangavellir"
+        },
+        {
+          "street": "Elliðavellir"
+        },
+        {
+          "street": "Eyjavellir"
+        },
+        {
+          "street": "Fagrigarður"
+        },
+        {
+          "street": "Freyjuvellir"
+        },
+        {
+          "street": "Gígjuvellir"
+        },
+        {
+          "street": "Grænigarður"
+        },
+        {
+          "street": "Hamragarður"
+        },
+        {
+          "street": "Háteigur"
+        },
+        {
+          "street": "Heiðarbakki"
+        },
+        {
+          "street": "Heiðarból"
+        },
+        {
+          "street": "Heiðarbraut"
+        },
+        {
+          "street": "Heiðarendi"
+        },
+        {
+          "street": "Heiðargarður"
+        },
+        {
+          "street": "Heiðargil"
+        },
+        {
+          "street": "Heiðarholt"
+        },
+        {
+          "street": "Heiðarhorn"
+        },
+        {
+          "street": "Heiðarhvammur"
+        },
+        {
+          "street": "Heimavellir"
+        },
+        {
+          "street": "Hólmgarður"
+        },
+        {
+          "street": "Miðgarður"
+        },
+        {
+          "street": "Norðurgarður"
+        },
+        {
+          "street": "Norðurvellir"
+        },
+        {
+          "street": "Nónvarða"
+        },
+        {
+          "street": "Óðinsvellir"
+        },
+        {
+          "street": "Ránarvellir"
+        },
+        {
+          "street": "Sjafnarvellir"
+        },
+        {
+          "street": "Smáratún",
+          "numbers": [
+            35,
+            {
+              "from": 37,
+              "to": 48
+            }
+          ]
+        },
+        {
+          "street": "Suðurgarður"
+        },
+        {
+          "street": "Suðurvellir"
+        },
+        {
+          "street": "Týsvellir"
+        },
+        {
+          "street": "Vesturgata",
+          "from": 26,
+          "to": 46
+        },
+        {
+          "street": "Vörðubrún"
+        },
+        {
+          "street": "Þórsvellir"
+        },
+        {
+          "street": "Ægisvellir"
+        }
+      ]
+    },
+    {
+      "school": "holtaskoli",
+      "rules": [
+        {
+          "street": "Asparlaut"
+        },
+        {
+          "street": "Baugholt"
+        },
+        {
+          "street": "Blikabraut"
+        },
+        {
+          "street": "Efstaleiti"
+        },
+        {
+          "street": "Faxabraut",
+          "from": 31,
+          "to": 82
+        },
+        {
+          "street": "Háaleiti"
+        },
+        {
+          "street": "Háholt"
+        },
+        {
+          "street": "Hátún"
+        },
+        {
+          "street": "Heiðarbrún"
+        },
+        {
+          "street": "Hrauntún"
+        },
+        {
+          "street": "Hringbraut",
+          "from": 108,
+          "to": 136
+        },
+        {
+          "street": "Krossholt"
+        },
+        {
+          "street": "Langholt"
+        },
+        {
+          "street": "Lyngholt"
+        },
+        {
+          "street": "Mávabraut"
+        },
+        {
+          "street": "Miðtún"
+        },
+        {
+          "street": "Skólavegur",
+          "from": 16,
+          "to": 44
+        },
+        {
+          "street": "Smáratún",
+          "numbers": [
+            {
+              "from": 1,
+              "to": 34
+            },
+            36
+          ]
+        },
+        {
+          "street": "Sóltún"
+        },
+        {
+          "street": "Sunnubraut",
+          "scope": {
+            "postnr": [
+              230
+            ]
+          },
+          "note": "Sunnubraut er líka til í póstnúmeri 260 (Njarðvík) í HMS. Reglan er afmörkuð við póstnúmer 230; heimilisföng í 260 eru óstaðfest þar til Reykjanesbær hefur staðfest hvaða skóla þau tilheyra."
+        },
+        {
+          "street": "Tjarnargata",
+          "from": 24,
+          "to": 41
+        },
+        {
+          "street": "Vallartún"
+        },
+        {
+          "street": "Vatnsholt"
+        },
+        {
+          "street": "Þverholt"
+        }
+      ]
+    },
+    {
+      "school": "njardvikurskoli",
+      "rules": [
+        {
+          "street": "Bergás"
+        },
+        {
+          "street": "Borgarvegur"
+        },
+        {
+          "street": "Brekkustígur"
+        },
+        {
+          "street": "Djúpivogur"
+        },
+        {
+          "street": "Fitjaás"
+        },
+        {
+          "street": "Fitjabraut"
+        },
+        {
+          "street": "Fífumói"
+        },
+        {
+          "street": "Gónhóll"
+        },
+        {
+          "street": "Grjótás"
+        },
+        {
+          "street": "Grundarvegur"
+        },
+        {
+          "street": "Grænás"
+        },
+        {
+          "street": "Hafnagata"
+        },
+        {
+          "street": "Hjallavegur"
+        },
+        {
+          "street": "Hólagata"
+        },
+        {
+          "street": "Hlíðarvegur"
+        },
+        {
+          "street": "Holtsgata"
+        },
+        {
+          "street": "Hraunsvegur"
+        },
+        {
+          "street": "Hæðargata"
+        },
+        {
+          "street": "Junkaragerði"
+        },
+        {
+          "street": "Kirkjuvogur"
+        },
+        {
+          "street": "Kjarrmói"
+        },
+        {
+          "street": "Klapparstígur",
+          "status": "needs-review",
+          "note": "Sjá athugasemd við Klapparstíg hjá Myllubakkaskóla. Tillaga til staðfestingar: afmarka við póstnúmer 260."
+        },
+        {
+          "street": "Klettás"
+        },
+        {
+          "street": "Krossmói"
+        },
+        {
+          "street": "Lágmói"
+        },
+        {
+          "street": "Lyngmói"
+        },
+        {
+          "street": "Melavegur"
+        },
+        {
+          "street": "Melás"
+        },
+        {
+          "street": "Merkines"
+        },
+        {
+          "street": "Móavegur"
+        },
+        {
+          "street": "Nesvegur"
+        },
+        {
+          "street": "Njarðarvellir"
+        },
+        {
+          "street": "Norðurstígur"
+        },
+        {
+          "street": "Reykjanesvegur"
+        },
+        {
+          "street": "Réttarvegur"
+        },
+        {
+          "street": "Selás"
+        },
+        {
+          "street": "Seljavogur"
+        },
+        {
+          "street": "Sjávargata"
+        },
+        {
+          "street": "Stapavellir"
+        },
+        {
+          "street": "Starmói"
+        },
+        {
+          "street": "Steinás"
+        },
+        {
+          "street": "Tunguvegur"
+        },
+        {
+          "street": "Urðarás"
+        },
+        {
+          "street": "Vallarás"
+        },
+        {
+          "street": "Vallarbraut"
+        },
+        {
+          "street": "Vitabraut"
+        },
+        {
+          "street": "Völuás"
+        },
+        {
+          "street": "Þórustígur"
+        }
+      ]
+    },
+    {
+      "school": "myllubakkaskoli",
+      "rules": [
+        {
+          "street": "Aðalgata"
+        },
+        {
+          "street": "Austurbraut"
+        },
+        {
+          "street": "Austurgata"
+        },
+        {
+          "street": "Ásabraut"
+        },
+        {
+          "street": "Bakkavegur"
+        },
+        {
+          "street": "Baldursgata"
+        },
+        {
+          "street": "Básvegur"
+        },
+        {
+          "street": "Bergvegur"
+        },
+        {
+          "street": "Birkiteigur"
+        },
+        {
+          "street": "Brekkubraut"
+        },
+        {
+          "street": "Brunnstígur"
+        },
+        {
+          "street": "Faxabraut",
+          "from": 1,
+          "to": 30
+        },
+        {
+          "street": "Framnesvegur"
+        },
+        {
+          "street": "Garðavegur"
+        },
+        {
+          "street": "Greniteigur"
+        },
+        {
+          "street": "Hafnargata"
+        },
+        {
+          "street": "Heiðarvegur"
+        },
+        {
+          "street": "Hólabraut"
+        },
+        {
+          "street": "Hrannargata"
+        },
+        {
+          "street": "Hringbraut",
+          "from": 1,
+          "to": 106
+        },
+        {
+          "street": "Íshússtígur"
+        },
+        {
+          "street": "Kirkjuteigur"
+        },
+        {
+          "street": "Kirkjuvegur"
+        },
+        {
+          "street": "Klapparstígur",
+          "status": "needs-review",
+          "note": "Klapparstígur er bæði hjá Myllubakkaskóla og Njarðvíkurskóla. HMS sýnir götuna í tveimur byggðum: 04 (póstnúmer 230) og 05 (póstnúmer 260). Tillaga til staðfestingar: afmarka við póstnúmer 230. Þar til það er staðfest er öll gatan óstaðfest."
+        },
+        {
+          "street": "Mánagata"
+        },
+        {
+          "street": "Melteigur"
+        },
+        {
+          "street": "Njarðargata"
+        },
+        {
+          "street": "Norðfjörðsgata"
+        },
+        {
+          "street": "Norðurtún"
+        },
+        {
+          "street": "Pósthússtræti"
+        },
+        {
+          "street": "Skólavegur",
+          "from": 1,
+          "to": 15
+        },
+        {
+          "street": "Sólvallagata",
+          "status": "needs-review",
+          "note": "Í upphafslistanum stóð „Sólvallargata“, sem er ekki til í Staðfangaskrá. Eina líka gatan í HMS er „Sólvallagata“ (póstnúmer 230). Tillaga: leiðrétta ritháttinn. Þar til Reykjanesbær hefur staðfest er gatan óstaðfest."
+        },
+        {
+          "street": "Suðurtún"
+        },
+        {
+          "street": "Tjarnargata",
+          "from": 6,
+          "to": 22
+        },
+        {
+          "street": "Túngata"
+        },
+        {
+          "street": "Vallargata"
+        },
+        {
+          "street": "Vatnsnesvegur"
+        },
+        {
+          "street": "Vesturbraut"
+        },
+        {
+          "street": "Vesturgata",
+          "from": 1,
+          "to": 25
+        },
+        {
+          "street": "Víkurbraut"
+        }
+      ]
+    },
+    {
+      "school": "stapaskoli",
+      "rules": [
+        {
+          "street": "Aspardalur"
+        },
+        {
+          "street": "Beykidalur"
+        },
+        {
+          "street": "Birkidalur"
+        },
+        {
+          "street": "Bjarkardalur"
+        },
+        {
+          "street": "Brekadalur"
+        },
+        {
+          "street": "Brimdalur"
+        },
+        {
+          "street": "Dalsbraut"
+        },
+        {
+          "street": "Eikardalur"
+        },
+        {
+          "street": "Einidalur"
+        },
+        {
+          "street": "Engjadalur"
+        },
+        {
+          "street": "Furudalur"
+        },
+        {
+          "street": "Fífudalur"
+        },
+        {
+          "street": "Hafdalur"
+        },
+        {
+          "street": "Hamradalur"
+        },
+        {
+          "street": "Hraundalur"
+        },
+        {
+          "street": "Laufdalur"
+        },
+        {
+          "street": "Leirdalur"
+        },
+        {
+          "street": "Lerkidalur"
+        },
+        {
+          "street": "Mardalur"
+        },
+        {
+          "street": "Mosdalur"
+        },
+        {
+          "street": "Mýrdalur"
+        },
+        {
+          "street": "Reynidalur"
+        },
+        {
+          "street": "Seljudalur"
+        },
+        {
+          "street": "Víðidalur"
+        }
+      ]
+    }
+  ]
+}
