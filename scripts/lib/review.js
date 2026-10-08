@@ -160,20 +160,28 @@ function analyze(zones, schools, records, meta) {
     });
   });
 
-  /* 6. Götur með reglu fyrir alla götuna en heimilisföng í fleiri en einni byggð */
+  /*
+   * 6. Óafmörkuð regla (án scope) sem nær yfir heimilisföng í fleiri en einu
+   * póstnúmeri. Slík regla getur úthlutað skóla á heimilisföng á öðru svæði en
+   * hún var ætluð fyrir; hún þarf scope.postnr eða staðfestingu.
+   */
   var multiArea = [];
   analysis.forEach(function (a) {
-    if (!a.rule.street || a.rule.scope) return;
-    var k = core.streetKey(a.rule.street);
-    if (hasNumberLimit(a.rule)) return;
-    var recs = byStreetRecs[k];
+    if (!a.rule.street || a.rule.scope || (a.rule.ids && a.rule.ids.length)) return;
+    var recs = byStreetRecs[core.streetKey(a.rule.street)];
     if (!recs) return;
-    var areas = areaSummary(recs);
-    if (areas.length > 1 && !multiArea.some(function (m) { return m.street === a.rule.street; })) {
-      multiArea.push({ street: a.rule.street, school: a.school, areas: areas, effective: a.effective });
+    var covered = recs.filter(function (r) { return core.ruleMatches(a.rule, toAddress(r)) !== 'no'; });
+    var pn = {};
+    covered.forEach(function (r) { pn[r.postnr === null ? '?' : r.postnr] = (pn[r.postnr === null ? '?' : r.postnr] || 0) + 1; });
+    if (Object.keys(pn).length > 1) {
+      multiArea.push({
+        street: a.rule.street, school: a.school, rule: core.describeRule(a.rule), effective: a.effective,
+        postnr: Object.keys(pn).sort().map(function (k) { return { postnr: k, count: pn[k] }; }),
+        areas: areaSummary(covered)
+      });
     }
   });
-  multiArea.sort(function (a, b) { return a.street.localeCompare(b.street, 'is'); });
+  multiArea.sort(function (a, b) { return a.street.localeCompare(b.street, 'is') || a.school.localeCompare(b.school); });
 
   /* 7. Óstaðfest heimilisföng eftir ástæðu */
   var unconfirmedByStreet = {};
@@ -185,7 +193,7 @@ function analyze(zones, schools, records, meta) {
   });
 
   return {
-    generatedFrom: { addressesImported: meta && meta.retrieved || null, source: meta && meta.source && meta.source.name || null },
+    generatedFrom: { addressesImported: meta && meta.imported || null, source: meta && meta.source && meta.source.name || null },
     summary: {
       addresses: cls.counts.total,
       confirmed: cls.counts.confirmed,
@@ -284,13 +292,13 @@ function toMarkdown(a) {
     if (c5.more) md += '\n… og ' + c5.more + ' götur til.\n';
   }
 
-  md += '\n## 6. Heil gata í reglu en heimilisföng í fleiri byggðum\n\n';
-  md += 'Reglan er ekki afmörkuð við póstsvæði en gatan er til í fleiri en einni byggð í HMS. Athugið hvort reglan eigi við þær allar.\n\n';
+  md += '\n## 6. Regla nær yfir fleiri en eitt póstnúmer\n\n';
+  md += 'Reglan er ekki afmörkuð (`scope`) en heimilisföngin sem hún nær yfir eru í fleiri en einu póstnúmeri. Athugið hvort reglan eigi við þau öll; annars þarf `scope.postnr`.\n\n';
   if (!a.multiAreaStreets.length) md += '_Engar._\n';
   else {
     var c6 = cap(a.multiAreaStreets, 300);
-    md += table(['Gata', 'Skóli', 'Byggðir (póstnr/byggð: fjöldi)'], c6.shown.map(function (m) {
-      return [m.street, m.school, m.areas.map(function (x) { return x.area + ': ' + x.count; }).join('; ')];
+    md += table(['Regla', 'Skóli', 'Póstnúmer: fjöldi', 'Byggðir (póstnr/byggð: fjöldi)'], c6.shown.map(function (m) {
+      return [m.rule, m.school, m.postnr.map(function (x) { return x.postnr + ': ' + x.count; }).join('; '), m.areas.map(function (x) { return x.area + ': ' + x.count; }).join('; ')];
     }));
     if (c6.more) md += '\n… og ' + c6.more + ' götur til.\n';
   }

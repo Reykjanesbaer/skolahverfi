@@ -1,15 +1,16 @@
 {
   "generatedFrom": {
-    "addressesImported": null,
+    "addressesImported": "2026-10-08",
     "source": "Staðfangaskrá HMS"
   },
   "summary": {
     "addresses": 5767,
-    "confirmed": 4224,
-    "unconfirmed": 1543,
+    "confirmed": 4220,
+    "unconfirmed": 1547,
     "unconfirmedByReason": {
-      "no-rule": 1487,
-      "conflict": 56
+      "no-rule": 1459,
+      "conflict": 56,
+      "needs-review": 32
     },
     "confirmedPerSchool": [
       {
@@ -30,7 +31,7 @@
       {
         "school": "holtaskoli",
         "name": "Holtaskóli",
-        "count": 573
+        "count": 569
       },
       {
         "school": "myllubakkaskoli",
@@ -70,6 +71,12 @@
       "school": "myllubakkaskoli",
       "rule": "Klapparstígur",
       "note": "Klapparstígur er bæði hjá Myllubakkaskóla og Njarðvíkurskóla. HMS sýnir götuna í tveimur byggðum: 04 (póstnúmer 230) og 05 (póstnúmer 260). Tillaga til staðfestingar: afmarka við póstnúmer 230. Þar til það er staðfest er öll gatan óstaðfest."
+    },
+    {
+      "id": "myllubakkaskoli/Sólvallagata",
+      "school": "myllubakkaskoli",
+      "rule": "Sólvallagata",
+      "note": "Í upphafslistanum stóð „Sólvallargata“, sem er ekki til í Staðfangaskrá. Eina líka gatan í HMS er „Sólvallagata“ (póstnúmer 230). Tillaga: leiðrétta ritháttinn. Þar til Reykjanesbær hefur staðfest er gatan óstaðfest."
     }
   ],
   "conflicts": [
@@ -153,15 +160,7 @@
       "affectedAddresses": 33
     }
   ],
-  "missingInHms": [
-    {
-      "street": "Sólvallargata",
-      "school": "myllubakkaskoli",
-      "suggestions": [
-        "Sólvallagata"
-      ]
-    }
-  ],
+  "missingInHms": [],
   "streetsWithoutRules": [
     {
       "street": "Afreksbraut",
@@ -914,12 +913,6 @@
       "numbers": "1"
     },
     {
-      "street": "Sólvallagata",
-      "count": 32,
-      "postnr": "230",
-      "numbers": "1–2, 4, 6, 8–12, 14, 16, 18, 20, 24, 26–30, 32, 34, 36, 38, 40, 42, 44–47"
-    },
-    {
       "street": "Sölvalaut",
       "count": 1,
       "postnr": "260",
@@ -1078,6 +1071,12 @@
       "withoutNumber": 0
     },
     {
+      "street": "Sunnubraut",
+      "count": 4,
+      "numbers": "33, 35, 56",
+      "withoutNumber": 1
+    },
+    {
       "street": "Vesturgata",
       "count": 1,
       "numbers": "–",
@@ -1086,92 +1085,20 @@
   ],
   "multiAreaStreets": [
     {
-      "street": "Efstaleiti",
-      "school": "holtaskoli",
-      "areas": [
-        {
-          "area": "230/4",
-          "postnr": 230,
-          "byggd": 4,
-          "count": 33,
-          "numbers": "24, 26, 28, 30, 32, 34, 36, 38, 40, 42–45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85"
-        },
-        {
-          "area": "230/5",
-          "postnr": 230,
-          "byggd": 5,
-          "count": 13,
-          "numbers": "20–23, 25, 27, 29, 31, 33, 35, 37, 39, 41"
-        }
-      ],
-      "effective": "confirmed"
-    },
-    {
-      "street": "Grænásbraut",
-      "school": "haaleitisskoli",
-      "areas": [
-        {
-          "area": "262/6",
-          "postnr": 262,
-          "byggd": 6,
-          "count": 1,
-          "numbers": "3"
-        },
-        {
-          "area": "262/8",
-          "postnr": 262,
-          "byggd": 8,
-          "count": 65,
-          "numbers": "349, 501, 506, 508, 552, 600–607, 614, 619, 700, 720, 910, 913, 920, 999, 1215–1221"
-        }
-      ],
-      "effective": "confirmed"
-    },
-    {
-      "street": "Heiðarvegur",
-      "school": "myllubakkaskoli",
-      "areas": [
-        {
-          "area": "230/4",
-          "postnr": 230,
-          "byggd": 4,
-          "count": 22,
-          "numbers": "2, 4, 6, 8, 10, 12, 14, 16–25"
-        },
-        {
-          "area": "230/5",
-          "postnr": 230,
-          "byggd": 5,
-          "count": 1,
-          "numbers": "–"
-        }
-      ],
-      "effective": "confirmed"
-    },
-    {
-      "street": "Junkaragerði",
-      "school": "njardvikurskoli",
-      "areas": [
-        {
-          "area": "233/2",
-          "postnr": 233,
-          "byggd": 2,
-          "count": 1,
-          "numbers": "–"
-        },
-        {
-          "area": "233/3",
-          "postnr": 233,
-          "byggd": 3,
-          "count": 1,
-          "numbers": "–"
-        }
-      ],
-      "effective": "confirmed"
-    },
-    {
       "street": "Klapparstígur",
-      "school": "njardvikurskoli",
+      "school": "myllubakkaskoli",
+      "rule": "Klapparstígur",
+      "effective": "conflict",
+      "postnr": [
+        {
+          "postnr": "230",
+          "count": 9
+        },
+        {
+          "postnr": "260",
+          "count": 14
+        }
+      ],
       "areas": [
         {
           "area": "230/4",
@@ -1187,68 +1114,55 @@
           "count": 14,
           "numbers": "1–2, 4–14, 16"
         }
-      ],
-      "effective": "conflict"
+      ]
     },
     {
-      "street": "Pósthússtræti",
-      "school": "myllubakkaskoli",
-      "areas": [
+      "street": "Klapparstígur",
+      "school": "njardvikurskoli",
+      "rule": "Klapparstígur",
+      "effective": "conflict",
+      "postnr": [
         {
-          "area": "230/4",
-          "postnr": 230,
-          "byggd": 4,
-          "count": 3,
-          "numbers": "1, 3"
+          "postnr": "230",
+          "count": 9
         },
         {
-          "area": "230/5",
-          "postnr": 230,
-          "byggd": 5,
-          "count": 4,
-          "numbers": "5, 7, 9"
+          "postnr": "260",
+          "count": 14
         }
       ],
-      "effective": "confirmed"
-    },
-    {
-      "street": "Sunnubraut",
-      "school": "holtaskoli",
       "areas": [
         {
           "area": "230/4",
           "postnr": 230,
           "byggd": 4,
-          "count": 32,
-          "numbers": "1–19, 31–32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54"
-        },
-        {
-          "area": "230/5",
-          "postnr": 230,
-          "byggd": 5,
-          "count": 1,
-          "numbers": "–"
-        },
-        {
-          "area": "260/4",
-          "postnr": 260,
-          "byggd": 4,
-          "count": 1,
-          "numbers": "33"
+          "count": 9,
+          "numbers": "2–9, 11"
         },
         {
           "area": "260/5",
           "postnr": 260,
           "byggd": 5,
-          "count": 3,
-          "numbers": "35, 56"
+          "count": 14,
+          "numbers": "1–2, 4–14, 16"
         }
-      ],
-      "effective": "confirmed"
+      ]
     },
     {
       "street": "Tjarnargata",
       "school": "akurskoli",
+      "rule": "Tjarnargata",
+      "effective": "conflict",
+      "postnr": [
+        {
+          "postnr": "230",
+          "count": 30
+        },
+        {
+          "postnr": "260",
+          "count": 3
+        }
+      ],
       "areas": [
         {
           "area": "230/4",
@@ -1264,29 +1178,39 @@
           "count": 3,
           "numbers": "4, 6, 10"
         }
-      ],
-      "effective": "conflict"
+      ]
     },
     {
-      "street": "Valhallarbraut",
-      "school": "haaleitisskoli",
-      "areas": [
+      "street": "Tjarnargata",
+      "school": "myllubakkaskoli",
+      "rule": "Tjarnargata 6–22",
+      "effective": "conflict",
+      "postnr": [
         {
-          "area": "262/6",
-          "postnr": 262,
-          "byggd": 6,
-          "count": 1,
-          "numbers": "865"
+          "postnr": "230",
+          "count": 9
         },
         {
-          "area": "262/8",
-          "postnr": 262,
-          "byggd": 8,
-          "count": 21,
-          "numbers": "738, 741, 743–744, 756–757, 761, 864, 866, 868–874, 891, 1222, 1234"
+          "postnr": "260",
+          "count": 2
         }
       ],
-      "effective": "confirmed"
+      "areas": [
+        {
+          "area": "230/4",
+          "postnr": 230,
+          "byggd": 4,
+          "count": 9,
+          "numbers": "6–7, 9, 12, 17, 19–20, 22"
+        },
+        {
+          "area": "260/5",
+          "postnr": 260,
+          "byggd": 5,
+          "count": 2,
+          "numbers": "6, 10"
+        }
+      ]
     }
   ],
   "unconfirmed": [
@@ -1299,6 +1223,11 @@
       "reason": "conflict",
       "street": "Tjarnargata",
       "count": 33
+    },
+    {
+      "reason": "needs-review",
+      "street": "Sólvallagata",
+      "count": 32
     },
     {
       "reason": "no-rule",
@@ -1877,11 +1806,6 @@
     },
     {
       "reason": "no-rule",
-      "street": "Sólvallagata",
-      "count": 32
-    },
-    {
-      "reason": "no-rule",
       "street": "Spilda 1",
       "count": 1
     },
@@ -1934,6 +1858,11 @@
       "reason": "no-rule",
       "street": "Suðurgata",
       "count": 50
+    },
+    {
+      "reason": "no-rule",
+      "street": "Sunnubraut",
+      "count": 4
     },
     {
       "reason": "no-rule",

@@ -112,8 +112,8 @@ test('niðurstaða óstaðfests heimilisfangs inniheldur aldrei skóla, jafnvel 
 test('greining reglna finnur nákvæmlega Tjarnargötu og Klapparstíg sem árekstra', () => {
   const conflicts = prep.analysis.filter((a) => a.effective === 'conflict').map((a) => a.rule.street);
   assert.deepEqual([...new Set(conflicts)].sort(), ['Klapparstígur', 'Tjarnargata']);
-  const pending = prep.analysis.filter((a) => a.rule.status === 'needs-review').map((a) => a.id);
-  assert.equal(pending.length, 3);
+  const pending = prep.analysis.filter((a) => a.rule.status === 'needs-review').map((a) => a.rule.street).sort();
+  assert.deepEqual(pending, ['Klapparstígur', 'Klapparstígur', 'Sólvallagata', 'Tjarnargata']);
 });
 
 test('allar sjö skólahverfisskrár eru til og hver skóli hefur reglur', () => {

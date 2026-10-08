@@ -328,7 +328,13 @@
           "street": "Sóltún"
         },
         {
-          "street": "Sunnubraut"
+          "street": "Sunnubraut",
+          "scope": {
+            "postnr": [
+              230
+            ]
+          },
+          "note": "Sunnubraut er líka til í póstnúmeri 260 (Njarðvík) í HMS. Reglan er afmörkuð við póstnúmer 230; heimilisföng í 260 eru óstaðfest þar til Reykjanesbær hefur staðfest hvaða skóla þau tilheyra."
         },
         {
           "street": "Tjarnargata",
@@ -602,7 +608,9 @@
           "to": 15
         },
         {
-          "street": "Sólvallargata"
+          "street": "Sólvallagata",
+          "status": "needs-review",
+          "note": "Í upphafslistanum stóð „Sólvallargata“, sem er ekki til í Staðfangaskrá. Eina líka gatan í HMS er „Sólvallagata“ (póstnúmer 230). Tillaga: leiðrétta ritháttinn. Þar til Reykjanesbær hefur staðfest er gatan óstaðfest."
         },
         {
           "street": "Suðurtún"

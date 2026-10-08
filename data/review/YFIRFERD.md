@@ -3,15 +3,15 @@
 > Búið til af `scripts/review-report.js` (keyrt líka af `scripts/import-hms.js`). **Ekki breyta í höndunum.**
 > Breytingar á reglum eru gerðar í `data/school-zones.json` og skýrslan endurgerð með `npm run review`.
 
-Heimilisföng frá HMS flutt inn: **ekki til**
+Heimilisföng frá HMS flutt inn: **2026-10-08**
 
 ## Staða
 
 | Atriði | Fjöldi |
 | --- | --- |
 | Heimilisföng í Reykjanesbæ (HMS) | 5767 |
-| Staðfest skólahverfi | 4224 |
-| Óstaðfest (birta hlutlaus skilaboð) | 1543 |
+| Staðfest skólahverfi | 4220 |
+| Óstaðfest (birta hlutlaus skilaboð) | 1547 |
 | Reglur í school-zones.json | 208 |
 | Götur í HMS / götur með reglu | 350 / 200 |
 
@@ -20,7 +20,8 @@ Heimilisföng frá HMS flutt inn: **ekki til**
 | Ástæða | Fjöldi |
 | --- | --- |
 | reglur stangast á | 56 |
-| engin regla á við | 1487 |
+| regla bíður staðfestingar | 32 |
+| engin regla á við | 1459 |
 
 Staðfest heimilisföng eftir skóla:
 
@@ -29,7 +30,7 @@ Staðfest heimilisföng eftir skóla:
 | Akurskóli | 547 |
 | Háaleitisskóli | 260 |
 | Heiðarskóli | 681 |
-| Holtaskóli | 573 |
+| Holtaskóli | 569 |
 | Myllubakkaskóli | 701 |
 | Njarðvíkurskóli | 884 |
 | Stapaskóli | 578 |
@@ -75,14 +76,13 @@ Heimilisföng í HMS eftir póstnúmeri/byggð:
 | akurskoli | Tjarnargata | Tjarnargata er í upphafslistanum bæði hjá Akurskóla (öll gatan) og Myllubakka-/Holtaskóla (númerabil). HMS sýnir götuna í tveimur byggðum: 04 (póstnúmer 230) og 05 (póstnúmer 260). Tillaga til staðfestingar: afmarka þessa reglu við póstnúmer 260. Þar til það er staðfest er öll gatan óstaðfest. |
 | njardvikurskoli | Klapparstígur | Sjá athugasemd við Klapparstíg hjá Myllubakkaskóla. Tillaga til staðfestingar: afmarka við póstnúmer 260. |
 | myllubakkaskoli | Klapparstígur | Klapparstígur er bæði hjá Myllubakkaskóla og Njarðvíkurskóla. HMS sýnir götuna í tveimur byggðum: 04 (póstnúmer 230) og 05 (póstnúmer 260). Tillaga til staðfestingar: afmarka við póstnúmer 230. Þar til það er staðfest er öll gatan óstaðfest. |
+| myllubakkaskoli | Sólvallagata | Í upphafslistanum stóð „Sólvallargata“, sem er ekki til í Staðfangaskrá. Eina líka gatan í HMS er „Sólvallagata“ (póstnúmer 230). Tillaga: leiðrétta ritháttinn. Þar til Reykjanesbær hefur staðfest er gatan óstaðfest. |
 
 ## 3. Götur í reglum sem finnast ekki í HMS (Reykjanesbær)
 
 Mögulegar innsláttarvillur, aðrar ritmyndir eða götur sem hafa verið lagðar niður.
 
-| Gata | Skóli | Líkar götur í HMS |
-| --- | --- | --- |
-| Sólvallargata | myllubakkaskoli | Sólvallagata |
+_Engar._
 
 ## 4. Götur í HMS sem engin regla nær yfir
 
@@ -215,7 +215,6 @@ Heimilisföng við þessar götur eru **óstaðfest** („engin regla á við“
 | Suðurgata | 50 | 230 | 1–9, 11–13, 16–20, 22–52 |
 | Svæði | 2 | 233 | – |
 | Sólbrekkuskjól | 1 | 260 | 1 |
-| Sólvallagata | 32 | 230 | 1–2, 4, 6, 8–12, 14, 16, 18, 20, 24, 26–30, 32, 34, 36, 38, 40, 42, 44–47 |
 | Sölvalaut | 1 | 260 | – |
 | Sörlagrund | 12 | 230 | 1–7 |
 | T | 1 | 262 | – |
@@ -249,20 +248,16 @@ Götur sem hafa reglur en einhver heimilisföng þeirra falla utan allra bila (t
 | Gata | Heimilisföng | Húsnúmer | Án húsnúmers |
 | --- | --- | --- | --- |
 | Skólavegur | 5 | 46, 48, 50, 52, 54 | 0 |
+| Sunnubraut | 4 | 33, 35, 56 | 1 |
 | Vesturgata | 1 | – | 1 |
 
-## 6. Heil gata í reglu en heimilisföng í fleiri byggðum
+## 6. Regla nær yfir fleiri en eitt póstnúmer
 
-Reglan er ekki afmörkuð við póstsvæði en gatan er til í fleiri en einni byggð í HMS. Athugið hvort reglan eigi við þær allar.
+Reglan er ekki afmörkuð (`scope`) en heimilisföngin sem hún nær yfir eru í fleiri en einu póstnúmeri. Athugið hvort reglan eigi við þau öll; annars þarf `scope.postnr`.
 
-| Gata | Skóli | Byggðir (póstnr/byggð: fjöldi) |
-| --- | --- | --- |
-| Efstaleiti | holtaskoli | 230/4: 33; 230/5: 13 |
-| Grænásbraut | haaleitisskoli | 262/6: 1; 262/8: 65 |
-| Heiðarvegur | myllubakkaskoli | 230/4: 22; 230/5: 1 |
-| Junkaragerði | njardvikurskoli | 233/2: 1; 233/3: 1 |
-| Klapparstígur | njardvikurskoli | 230/4: 9; 260/5: 14 |
-| Pósthússtræti | myllubakkaskoli | 230/4: 3; 230/5: 4 |
-| Sunnubraut | holtaskoli | 230/4: 32; 230/5: 1; 260/4: 1; 260/5: 3 |
-| Tjarnargata | akurskoli | 230/4: 30; 260/5: 3 |
-| Valhallarbraut | haaleitisskoli | 262/6: 1; 262/8: 21 |
+| Regla | Skóli | Póstnúmer: fjöldi | Byggðir (póstnr/byggð: fjöldi) |
+| --- | --- | --- | --- |
+| Klapparstígur | myllubakkaskoli | 230: 9; 260: 14 | 230/4: 9; 260/5: 14 |
+| Klapparstígur | njardvikurskoli | 230: 9; 260: 14 | 230/4: 9; 260/5: 14 |
+| Tjarnargata | akurskoli | 230: 30; 260: 3 | 230/4: 30; 260/5: 3 |
+| Tjarnargata 6–22 | myllubakkaskoli | 230: 9; 260: 2 | 230/4: 9; 260/5: 2 |

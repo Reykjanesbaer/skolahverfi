@@ -65,10 +65,13 @@
     return /^[0-9a-f]{6}$/i.test(v) ? v.toUpperCase() : null;
   }
 
+  /* Stýristafir, núll-breiddarstafir og textastefnustafir (t.d. U+202E) */
+  var CONTROL_CHARS = new RegExp('[\\u0000-\\u001f\\u007f-\\u009f\\u200b-\\u200f\\u2028-\\u202e\\u2066-\\u2069\\ufeff]', 'g');
+
   /* Texti: stýristafir fjarlægðir, bil felld saman, klippt við hámark. Tómt → null */
   function parseText(raw, max) {
     if (raw === null || raw === undefined) return null;
-    var v = String(raw).replace(/[\u0000-\u001f\u007f-\u009f​-‏ -‮⁦-⁩﻿]/g, ' ')
+    var v = String(raw).replace(CONTROL_CHARS, ' ')
       .replace(/\s+/g, ' ').trim();
     if (!v) return null;
     if (v.length > max) v = v.slice(0, max).trim();
